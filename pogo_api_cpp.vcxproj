@@ -1,0 +1,588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{31AAC6AC-ED68-4E95-B74D-960B4D2CCBA2}</ProjectGuid>
+    <RootNamespace>test_http</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>pogo_api_cpp</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)proto\proto_cpp\;$(ProjectDir)s2\;$(ProjectDir)..\3rdparty\msvc14_x86\zlib\include;$(ProjectDir)..\3rdparty\msvc14_x86\protobuf\;$(ProjectDir)..\3rdparty\msvc14_x86\boost;$(ProjectDir)..\3rdparty\msvc14_x86\rapidjson\;$(ProjectDir)..\3rdparty\msvc14_x86\libcurl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\3rdparty\msvc14_x86\protobuf\lib;$(ProjectDir)..\3rdparty\msvc14_x86\boost\stage\lib;$(ProjectDir)..\3rdparty\msvc14_x86\libcurl\lib;$(ProjectDir)..\3rdparty\msvc14_x86\zlib\lib;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>STL_MSVC;_TIMESPEC_DEFINED;_MBCS;CURL_STATICLIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>zlibstaticd.lib;WLDAP32.LIB;Ws2_32.lib;ssleay32.lib;libeay32.lib;libcurld.lib;libprotocd.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="client.cpp" />
+    <ClCompile Include="gzip.cpp" />
+    <ClCompile Include="http_client.cpp" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\AssetDigestEntry.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleAction.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleActionType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleLog.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleParticipant.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Battle\BattlePokemonInfo.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleResults.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleState.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Capture\CaptureAward.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Capture\CaptureProbability.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\DownloadUrlEntry.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Gym\GymMembership.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Gym\GymState.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Logs\ActionLogEntry.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Logs\CatchPokemonLogEntry.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Logs\FortSearchLogEntry.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\PlayerBadge.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\PlayerData.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Player\ContactSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Player\Currency.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Player\DailyBonus.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Player\EquippedBadge.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerAvatar.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerCamera.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerCurrency.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerPublicProfile.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerStats.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\PokedexEntry.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Data\PokemonData.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\ActivityType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\BadgeType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\CameraInterpolation.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\CameraTarget.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\Gender.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\IapItemCategory.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\ItemCategory.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\ItemEffect.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\Platform.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\PokemonFamilyId.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\PokemonId.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\PokemonMove.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\PokemonMovementType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\PokemonRarity.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\PokemonType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\TeamColor.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Enums\TutorialState.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\AppliedItem.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\AppliedItems.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\Candy.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\EggIncubator.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\EggIncubators.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\EggIncubatorType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\InventoryDelta.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\InventoryItem.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\InventoryItemData.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\InventoryUpgrade.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\InventoryUpgrades.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\InventoryUpgradeType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\Item\ItemAward.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\Item\ItemData.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\Item\ItemId.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Inventory\Item\ItemType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Fort\FortData.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Fort\FortLureInfo.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Fort\FortModifier.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Fort\FortRenderingType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Fort\FortSponsor.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Fort\FortSummary.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Fort\FortType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\MapCell.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\MapObjectsStatus.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Pokemon\MapPokemon.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Pokemon\NearbyPokemon.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\Pokemon\WildPokemon.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Map\SpawnPoint.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\AuthTicket.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\RequestEnvelope.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\ResponseEnvelope.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\Signature.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\Unknown6.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\Unknown6Response.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\AddFortModifierMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\AttackGymMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CatchPokemonMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CheckAwardedBadgesMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CheckCodenameAvailableMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\ClaimCodenameMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CollectDailyBonusMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CollectDailyDefenderBonusMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\DiskEncounterMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\DownloadItemTemplatesMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\DownloadRemoteConfigVersionMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\DownloadSettingsMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EchoMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EncounterMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EncounterTutorialCompleteMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EquipBadgeMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EvolvePokemonMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\FortDeployPokemonMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\FortDetailsMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\FortRecallPokemonMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\FortSearchMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetAssetDigestMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetDownloadUrlsMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetGymDetailsMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetHatchedEggsMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetIncensePokemonMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetInventoryMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetMapObjectsMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetPlayerMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetPlayerProfileMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetSuggestedCodenamesMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\IncenseEncounterMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\LevelUpRewardsMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\MarkTutorialCompleteMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\NicknamePokemonMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\PlayerUpdateMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\RecycleInventoryItemMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\ReleasePokemonMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SetAvatarMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SetContactSettingsMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SetFavoritePokemonMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SetPlayerTeamMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SfidaActionLogMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\StartGymBattleMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UpgradePokemonMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseIncenseMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemCaptureMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemEggIncubatorMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemGymMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemPotionMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemReviveMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemXpBoostMessage.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\Request.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Requests\RequestType.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\AddFortModifierResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\AttackGymResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\CatchPokemonResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\CheckAwardedBadgesResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\CheckCodenameAvailableResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\ClaimCodenameResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\CollectDailyBonusResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\CollectDailyDefenderBonusResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\DiskEncounterResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\DownloadItemTemplatesResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\DownloadRemoteConfigVersionResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\DownloadSettingsResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\EchoResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\EncounterResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\EncounterTutorialCompleteResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\EquipBadgeResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\EvolvePokemonResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\FortDeployPokemonResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\FortDetailsResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\FortRecallPokemonResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\FortSearchResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetAssetDigestResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetDownloadUrlsResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetGymDetailsResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetHatchedEggsResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetIncensePokemonResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetInventoryResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetMapObjectsResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetPlayerProfileResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetPlayerResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetSuggestedCodenamesResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\IncenseEncounterResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\LevelUpRewardsResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\MarkTutorialCompleteResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\NicknamePokemonResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\PlayerUpdateResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\RecycleInventoryItemResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\ReleasePokemonResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\SetAvatarResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\SetContactSettingsResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\SetFavoritePokemonResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\SetPlayerTeamResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\SfidaActionLogResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\StartGymBattleResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\UpgradePokemonResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseIncenseResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemCaptureResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemEggIncubatorResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemGymResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemPotionResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemReviveResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemXpBoostResponse.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\DownloadSettingsAction.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\FortSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\GlobalSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\InventorySettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\LevelSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\MapSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\BadgeSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\CameraSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\EncounterSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\EquippedBadgeSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\GymBattleSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\GymLevelSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\IapItemDisplay.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\IapSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\ItemSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\BattleAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\EggIncubatorAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\ExperienceBoostAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\FoodAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\FortModifierAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\IncenseAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\InventoryUpgradeAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\PokeballAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\PotionAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\ReviveAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\MoveSequenceSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\MoveSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\PlayerLevelSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\PokemonSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\PokemonUpgradeSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Pokemon\CameraAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Pokemon\EncounterAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\Pokemon\StatsAttributes.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\Master\TypeEffectiveSettings.pb.cc" />
+    <ClCompile Include="proto_builder.cpp" />
+    <ClCompile Include="s2\s2.cc" />
+    <ClCompile Include="s2\s2cellid.cc" />
+    <ClCompile Include="s2\s2latlng.cc" />
+    <ClCompile Include="s2\util\math\exactfloat\exactfloat.cc" />
+    <ClCompile Include="util.cpp" />
+    <ClCompile Include="xxHash\xxhash.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="client.h" />
+    <ClInclude Include="gzip.h" />
+    <ClInclude Include="http_client.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\AssetDigestEntry.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleAction.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleActionType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleLog.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleParticipant.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Battle\BattlePokemonInfo.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleResults.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleState.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Battle\BattleType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Capture\CaptureAward.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Capture\CaptureProbability.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\DownloadUrlEntry.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Gym\GymMembership.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Gym\GymState.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Logs\ActionLogEntry.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Logs\CatchPokemonLogEntry.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Logs\FortSearchLogEntry.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\PlayerBadge.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\PlayerData.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Player\ContactSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Player\Currency.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Player\DailyBonus.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Player\EquippedBadge.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerAvatar.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerCamera.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerCurrency.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerPublicProfile.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\Player\PlayerStats.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\PokedexEntry.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Data\PokemonData.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\ActivityType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\BadgeType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\CameraInterpolation.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\CameraTarget.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\Gender.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\IapItemCategory.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\ItemCategory.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\ItemEffect.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\Platform.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\PokemonFamilyId.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\PokemonId.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\PokemonMove.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\PokemonMovementType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\PokemonRarity.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\PokemonType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\TeamColor.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Enums\TutorialState.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\AppliedItem.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\AppliedItems.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\Candy.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\EggIncubator.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\EggIncubators.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\EggIncubatorType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\InventoryDelta.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\InventoryItem.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\InventoryItemData.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\InventoryUpgrade.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\InventoryUpgrades.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\InventoryUpgradeType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\Item\ItemAward.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\Item\ItemData.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\Item\ItemId.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Inventory\Item\ItemType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Fort\FortData.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Fort\FortLureInfo.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Fort\FortModifier.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Fort\FortRenderingType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Fort\FortSponsor.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Fort\FortSummary.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Fort\FortType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\MapCell.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\MapObjectsStatus.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Pokemon\MapPokemon.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Pokemon\NearbyPokemon.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\Pokemon\WildPokemon.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Map\SpawnPoint.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\AuthTicket.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\RequestEnvelope.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\ResponseEnvelope.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\Signature.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\Unknown6.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\Unknown6Response.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\AddFortModifierMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\AttackGymMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CatchPokemonMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CheckAwardedBadgesMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CheckCodenameAvailableMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\ClaimCodenameMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CollectDailyBonusMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\CollectDailyDefenderBonusMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\DiskEncounterMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\DownloadItemTemplatesMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\DownloadRemoteConfigVersionMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\DownloadSettingsMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EchoMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EncounterMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EncounterTutorialCompleteMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EquipBadgeMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\EvolvePokemonMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\FortDeployPokemonMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\FortDetailsMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\FortRecallPokemonMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\FortSearchMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetAssetDigestMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetDownloadUrlsMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetGymDetailsMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetHatchedEggsMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetIncensePokemonMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetInventoryMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetMapObjectsMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetPlayerMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetPlayerProfileMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\GetSuggestedCodenamesMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\IncenseEncounterMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\LevelUpRewardsMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\MarkTutorialCompleteMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\NicknamePokemonMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\PlayerUpdateMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\RecycleInventoryItemMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\ReleasePokemonMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SetAvatarMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SetContactSettingsMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SetFavoritePokemonMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SetPlayerTeamMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\SfidaActionLogMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\StartGymBattleMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UpgradePokemonMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseIncenseMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemCaptureMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemEggIncubatorMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemGymMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemPotionMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemReviveMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Messages\UseItemXpBoostMessage.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\Request.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Requests\RequestType.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\AddFortModifierResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\AttackGymResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\CatchPokemonResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\CheckAwardedBadgesResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\CheckCodenameAvailableResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\ClaimCodenameResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\CollectDailyBonusResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\CollectDailyDefenderBonusResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\DiskEncounterResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\DownloadItemTemplatesResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\DownloadRemoteConfigVersionResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\DownloadSettingsResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\EchoResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\EncounterResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\EncounterTutorialCompleteResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\EquipBadgeResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\EvolvePokemonResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\FortDeployPokemonResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\FortDetailsResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\FortRecallPokemonResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\FortSearchResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetAssetDigestResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetDownloadUrlsResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetGymDetailsResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetHatchedEggsResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetIncensePokemonResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetInventoryResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetMapObjectsResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetPlayerProfileResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetPlayerResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\GetSuggestedCodenamesResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\IncenseEncounterResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\LevelUpRewardsResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\MarkTutorialCompleteResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\NicknamePokemonResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\PlayerUpdateResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\RecycleInventoryItemResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\ReleasePokemonResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\SetAvatarResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\SetContactSettingsResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\SetFavoritePokemonResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\SetPlayerTeamResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\SfidaActionLogResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\StartGymBattleResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\UpgradePokemonResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseIncenseResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemCaptureResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemEggIncubatorResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemGymResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemPotionResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemReviveResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Responses\UseItemXpBoostResponse.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\DownloadSettingsAction.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\FortSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\GlobalSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\InventorySettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\LevelSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\MapSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\BadgeSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\CameraSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\EncounterSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\EquippedBadgeSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\GymBattleSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\GymLevelSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\IapItemDisplay.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\IapSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\ItemSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\BattleAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\EggIncubatorAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\ExperienceBoostAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\FoodAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\FortModifierAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\IncenseAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\InventoryUpgradeAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\PokeballAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\PotionAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Item\ReviveAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\MoveSequenceSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\MoveSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\PlayerLevelSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\PokemonSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\PokemonUpgradeSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Pokemon\CameraAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Pokemon\EncounterAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Pokemon\StatsAttributes.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\TypeEffectiveSettings.pb.h" />
+    <ClInclude Include="proto_builder.h" />
+    <ClInclude Include="util.h" />
+    <ClInclude Include="xxHash\xxhash.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
