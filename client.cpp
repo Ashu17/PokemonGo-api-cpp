@@ -269,6 +269,23 @@ pogo::PlayerUpdateResponse client::update_position()
 }
 
 
+pogo::RecycleInventoryItemResponse client::recycle_item(pogo::ItemId itemId, int amount)
+{
+	pogo::RecycleInventoryItemMessage recycle_item;
+	recycle_item.set_item_id(itemId);
+	recycle_item.set_count(amount);
+
+	std::string post_data = proto_request_build(m_auth_ticket, m_coordinate,
+	{
+		{ pogo::RECYCLE_INVENTORY_ITEM, recycle_item.SerializeAsString() },
+	});
+
+	auto payload_data = request_payload(post_data);
+	auto payload = proto_parse_payload<pogo::RecycleInventoryItemResponse>(payload_data);
+
+	return payload;
+}
+
 const coordinate & client::get_position() const
 {
 	std::lock_guard<std::mutex> lock(m_mutex);

@@ -122,7 +122,7 @@ std::string encode_uint64_list(const std::vector<uint64_t> &data)
 	return out;
 }
 
-uint64_t timestamp()
+int64_t timestamp()
 {
 	return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }

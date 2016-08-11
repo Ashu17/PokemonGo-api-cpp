@@ -6,21 +6,9 @@
 
 struct coordinate
 {
-	union
-	{
-		struct
-		{
-			double latitude;
-			double longitude;
-			double altitude;
-		};
-// 		struct
-// 		{
-// 			uint64_t altitude_raw;
-// 			uint64_t latitude_raw;
-// 			uint64_t longitude_raw;
-// 		};
-	};
+	double latitude;
+	double longitude;
+	double altitude;
 };
 
 static std::string coordinate_pack(const coordinate &coord)
@@ -70,6 +58,6 @@ std::vector<uint64_t> GetNearbyCellIds(const coordinate &coord);
 
 std::string encode_uint64_list(const std::vector<uint64_t> &data);
 
-uint64_t timestamp();
+int64_t timestamp();
 
 double distance_earth(double lat1d, double lon1d, double lat2d, double lon2d);

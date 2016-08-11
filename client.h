@@ -63,6 +63,8 @@ public:
 
 	pogo::PlayerUpdateResponse update_position();
 
+	pogo::RecycleInventoryItemResponse recycle_item(pogo::ItemId itemId, int amount);
+
 	const coordinate &get_position() const;
 
 	void set_position(const coordinate &coord);
