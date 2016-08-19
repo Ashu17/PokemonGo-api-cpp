@@ -786,6 +786,9 @@
     <ClCompile Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\Signature.pb.cc">
       <Filter>proto\Networking\Envelopes</Filter>
     </ClCompile>
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\GpsSettings.pb.cc">
+      <Filter>proto\Settings</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="http_client.h">
@@ -1474,6 +1477,9 @@
     </ClInclude>
     <ClInclude Include="proto\proto_cpp\pogo_proto.h">
       <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\GpsSettings.pb.h">
+      <Filter>proto\Settings</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

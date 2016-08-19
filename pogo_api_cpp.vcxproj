@@ -313,6 +313,7 @@
     <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\DownloadSettingsAction.pb.cc" />
     <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\FortSettings.pb.cc" />
     <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\GlobalSettings.pb.cc" />
+    <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\GpsSettings.pb.cc" />
     <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\InventorySettings.pb.cc" />
     <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\LevelSettings.pb.cc" />
     <ClCompile Include="proto\proto_cpp\POGOProtos\Settings\MapSettings.pb.cc" />
@@ -547,6 +548,7 @@
     <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\DownloadSettingsAction.pb.h" />
     <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\FortSettings.pb.h" />
     <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\GlobalSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\GpsSettings.pb.h" />
     <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\InventorySettings.pb.h" />
     <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\LevelSettings.pb.h" />
     <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\MapSettings.pb.h" />

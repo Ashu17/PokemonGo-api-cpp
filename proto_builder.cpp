@@ -78,7 +78,7 @@ pogo::Unknown6 GenerateSignature(const pogo::AuthTicket &auth, const coordinate 
 	location_fix->set_altitude(static_cast<float>(coords.altitude));
 	location_fix->set_latitude(static_cast<float>(coords.latitude));
 	location_fix->set_longitude(static_cast<float>(coords.longitude));
-	location_fix->set_timestamp_since_start(static_cast<uint64_t>(m_timer.elapsed() / 1000.0) - 200);
+	location_fix->set_timestamp_snapshot(static_cast<uint64_t>(m_timer.elapsed() / 1000.0) - 200);
 	location_fix->set_floor(3);
 	location_fix->set_location_type(1);
 
@@ -97,7 +97,7 @@ pogo::Unknown6 GenerateSignature(const pogo::AuthTicket &auth, const coordinate 
 		sig.add_request_hash(XXH64(request_data.c_str(), request_data.size(), seed));
 	}
 
-	sig.set_unknown22({ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 });
+	sig.set_session_hash({ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 });
 
 	pogo::Unknown6 val;
 	val.set_request_type(6);
