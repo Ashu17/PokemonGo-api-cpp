@@ -1,8 +1,6 @@
 #include "proto_builder.h"
 #include "gzip.h"
 #include <iostream>
-#include "pogo_proto.h"
-
 #include <boost/timer.hpp>
 #include "xxHash/xxhash.h"
 

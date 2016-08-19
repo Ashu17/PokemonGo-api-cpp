@@ -79,7 +79,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_TIMESPEC_DEFINED;_MBCS;CURL_STATICLIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>CURL_STATICLIB;_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>zlibstaticd.lib;WLDAP32.LIB;Ws2_32.lib;ssleay32.lib;libeay32.lib;libcurld.lib;libprotocd.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -578,6 +578,7 @@
     <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Pokemon\EncounterAttributes.pb.h" />
     <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\Pokemon\StatsAttributes.pb.h" />
     <ClInclude Include="proto\proto_cpp\POGOProtos\Settings\Master\TypeEffectiveSettings.pb.h" />
+    <ClInclude Include="proto\proto_cpp\pogo_proto.h" />
     <ClInclude Include="proto_builder.h" />
     <ClInclude Include="util.h" />
     <ClInclude Include="xxHash\xxhash.h" />

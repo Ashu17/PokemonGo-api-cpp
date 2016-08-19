@@ -1,34 +1,9 @@
 #pragma once
 
-#ifndef _TIMESPEC_DEFINED
-#define _TIMESPEC_DEFINED
-#endif
-#ifndef _MBCS
-#define _MBCS
-#endif
-#ifndef CURL_STATICLIB
-#define CURL_STATICLIB
-#endif
-#ifndef _SCL_SECURE_NO_WARNINGS
-#define _SCL_SECURE_NO_WARNINGS
-#endif
-
-#pragma comment( lib, "Ws2_32.lib" )
-#pragma comment( lib, "WLDAP32.lib" )
-#pragma comment( lib, "zlibstaticd.lib" )
-#pragma comment( lib, "pogo_api_cpp.lib" )
-#pragma comment( lib, "libprotocd.lib" )
-#pragma comment( lib, "libprotobufd.lib" )
-#pragma comment( lib, "libprotobuf-lited.lib" )
-#pragma comment( lib, "ssleay32.lib" )
-#pragma comment( lib, "libeay32.lib" )
-#pragma comment( lib, "libcurld.lib" )
-
-
+#include <memory>
 #include <mutex>
 #include "pogo_proto.h"
 #include "util.h"
-#include <memory>
 
 class http_client;
 

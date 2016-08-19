@@ -224,6 +224,7 @@
 #include "POGOProtos/Settings/Master/PokemonUpgradeSettings.pb.h"
 #include "POGOProtos/Settings/Master/TypeEffectiveSettings.pb.h"
 
+
 namespace pogo
 {
   using namespace POGOProtos;

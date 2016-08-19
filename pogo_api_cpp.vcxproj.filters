@@ -1472,5 +1472,8 @@
     <ClInclude Include="proto\proto_cpp\POGOProtos\Networking\Envelopes\Signature.pb.h">
       <Filter>proto\Networking\Envelopes</Filter>
     </ClInclude>
+    <ClInclude Include="proto\proto_cpp\pogo_proto.h">
+      <Filter>proto</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
