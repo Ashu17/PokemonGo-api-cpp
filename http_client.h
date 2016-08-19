@@ -1,8 +1,9 @@
 #pragma once
-#include <curl/curl.h>
 #include <memory>
 #include <functional>
 #include <string>
+
+typedef struct Curl_easy CURL;
 
 class http_client
 {

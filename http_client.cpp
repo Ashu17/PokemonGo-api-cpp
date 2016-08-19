@@ -1,5 +1,6 @@
 #include "http_client.h"
 #include <iostream>
+#include <curl/curl.h>
 
 static int curl_writer(char *data, size_t size, size_t nmemb, std::string *buffer)
 {

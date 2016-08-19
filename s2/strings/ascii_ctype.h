@@ -70,13 +70,13 @@
 
 #define kApb kAsciiPropertyBits
 extern const uint8 kAsciiPropertyBits[256];
-static inline bool ascii_isalpha(unsigned char c) { return kApb[c] & 0x01; }
-static inline bool ascii_isalnum(unsigned char c) { return kApb[c] & 0x04; }
-static inline bool ascii_isspace(unsigned char c) { return kApb[c] & 0x08; }
-static inline bool ascii_ispunct(unsigned char c) { return kApb[c] & 0x10; }
-static inline bool ascii_isblank(unsigned char c) { return kApb[c] & 0x20; }
-static inline bool ascii_iscntrl(unsigned char c) { return kApb[c] & 0x40; }
-static inline bool ascii_isxdigit(unsigned char c) { return kApb[c] & 0x80; }
+static inline bool ascii_isalpha(unsigned char c) { return (kApb[c] & 0x01) != 0; }
+static inline bool ascii_isalnum(unsigned char c) { return (kApb[c] & 0x04) != 0; }
+static inline bool ascii_isspace(unsigned char c) { return (kApb[c] & 0x08) != 0; }
+static inline bool ascii_ispunct(unsigned char c) { return (kApb[c] & 0x10) != 0; }
+static inline bool ascii_isblank(unsigned char c) { return (kApb[c] & 0x20) != 0; }
+static inline bool ascii_iscntrl(unsigned char c) { return (kApb[c] & 0x40) != 0; }
+static inline bool ascii_isxdigit(unsigned char c) { return (kApb[c] & 0x80) != 0; }
 static inline bool ascii_isdigit(unsigned char c) { return c >= '0' && c <= '9'; }
 static inline bool ascii_isprint(unsigned char c) { return c >= 32 && c < 127; }
 static inline bool ascii_isgraph(unsigned char c) { return c >  32 && c < 127; }

@@ -19,6 +19,8 @@
 #ifndef BASE_STL_DECL_H_
 #define BASE_STL_DECL_H_
 
+#define STL_MSVC
+
 #if defined(STL_MSVC)  /* If VC++'s STL */
 #include "base/stl_decl_msvc.h"
 

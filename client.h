@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef STL_MSVC
-#define STL_MSVC
-#endif
 #ifndef _TIMESPEC_DEFINED
 #define _TIMESPEC_DEFINED
 #endif

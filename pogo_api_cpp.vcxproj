@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(ProjectDir)proto\proto_cpp\;$(ProjectDir)s2\;$(ProjectDir)..\3rdparty\msvc14_x86\zlib\include;$(ProjectDir)..\3rdparty\msvc14_x86\protobuf\;$(ProjectDir)..\3rdparty\msvc14_x86\boost;$(ProjectDir)..\3rdparty\msvc14_x86\rapidjson\;$(ProjectDir)..\3rdparty\msvc14_x86\libcurl\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)..\3rdparty\msvc14_x86\protobuf\lib;$(ProjectDir)..\3rdparty\msvc14_x86\boost\stage\lib;$(ProjectDir)..\3rdparty\msvc14_x86\libcurl\lib;$(ProjectDir)..\3rdparty\msvc14_x86\zlib\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)proto\proto_cpp;$(ProjectDir)s2;$(ProjectDir)..\pogo_libs\zlib\include;$(ProjectDir)..\pogo_libs\protobuf;$(ProjectDir)..\pogo_libs\boost;$(ProjectDir)..\pogo_libs\rapidjson;$(ProjectDir)..\pogo_libs\libcurl;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\pogo_libs\protobuf\lib;$(ProjectDir)..\pogo_libs\boost\stage\lib;$(ProjectDir)..\pogo_libs\libcurl\lib;$(ProjectDir)..\pogo_libs\zlib\lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -79,7 +79,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>STL_MSVC;_TIMESPEC_DEFINED;_MBCS;CURL_STATICLIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_TIMESPEC_DEFINED;_MBCS;CURL_STATICLIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>zlibstaticd.lib;WLDAP32.LIB;Ws2_32.lib;ssleay32.lib;libeay32.lib;libcurld.lib;libprotocd.lib;libprotobufd.lib;libprotobuf-lited.lib;%(AdditionalDependencies)</AdditionalDependencies>
