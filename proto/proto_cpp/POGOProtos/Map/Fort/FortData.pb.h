@@ -29,6 +29,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "POGOProtos/Enums/PokemonId.pb.h"
 #include "POGOProtos/Enums/TeamColor.pb.h"
+#include "POGOProtos/Inventory/Item/ItemId.pb.h"
 #include "POGOProtos/Map/Fort/FortType.pb.h"
 #include "POGOProtos/Map/Fort/FortSponsor.pb.h"
 #include "POGOProtos/Map/Fort/FortRenderingType.pb.h"
@@ -179,6 +180,25 @@ class FortData : public ::google::protobuf::Message /* @@protoc_insertion_point(
   bool is_in_battle() const;
   void set_is_in_battle(bool value);
 
+  // repeated .POGOProtos.Inventory.Item.ItemId active_fort_modifier = 12;
+  int active_fort_modifier_size() const;
+  void clear_active_fort_modifier();
+  static const int kActiveFortModifierFieldNumber = 12;
+  ::POGOProtos::Inventory::Item::ItemId active_fort_modifier(int index) const;
+  void set_active_fort_modifier(int index, ::POGOProtos::Inventory::Item::ItemId value);
+  void add_active_fort_modifier(::POGOProtos::Inventory::Item::ItemId value);
+  const ::google::protobuf::RepeatedField<int>& active_fort_modifier() const;
+  ::google::protobuf::RepeatedField<int>* mutable_active_fort_modifier();
+
+  // optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
+  bool has_lure_info() const;
+  void clear_lure_info();
+  static const int kLureInfoFieldNumber = 13;
+  const ::POGOProtos::Map::Fort::FortLureInfo& lure_info() const;
+  ::POGOProtos::Map::Fort::FortLureInfo* mutable_lure_info();
+  ::POGOProtos::Map::Fort::FortLureInfo* release_lure_info();
+  void set_allocated_lure_info(::POGOProtos::Map::Fort::FortLureInfo* lure_info);
+
   // optional int64 cooldown_complete_timestamp_ms = 14;
   void clear_cooldown_complete_timestamp_ms();
   static const int kCooldownCompleteTimestampMsFieldNumber = 14;
@@ -197,26 +217,6 @@ class FortData : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::POGOProtos::Map::Fort::FortRenderingType rendering_type() const;
   void set_rendering_type(::POGOProtos::Map::Fort::FortRenderingType value);
 
-  // optional bytes active_fort_modifier = 12;
-  void clear_active_fort_modifier();
-  static const int kActiveFortModifierFieldNumber = 12;
-  const ::std::string& active_fort_modifier() const;
-  void set_active_fort_modifier(const ::std::string& value);
-  void set_active_fort_modifier(const char* value);
-  void set_active_fort_modifier(const void* value, size_t size);
-  ::std::string* mutable_active_fort_modifier();
-  ::std::string* release_active_fort_modifier();
-  void set_allocated_active_fort_modifier(::std::string* active_fort_modifier);
-
-  // optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
-  bool has_lure_info() const;
-  void clear_lure_info();
-  static const int kLureInfoFieldNumber = 13;
-  const ::POGOProtos::Map::Fort::FortLureInfo& lure_info() const;
-  ::POGOProtos::Map::Fort::FortLureInfo* mutable_lure_info();
-  ::POGOProtos::Map::Fort::FortLureInfo* release_lure_info();
-  void set_allocated_lure_info(::POGOProtos::Map::Fort::FortLureInfo* lure_info);
-
   // @@protoc_insertion_point(class_scope:POGOProtos.Map.Fort.FortData)
  private:
 
@@ -232,11 +232,12 @@ class FortData : public ::google::protobuf::Message /* @@protoc_insertion_point(
   bool enabled_;
   bool is_in_battle_;
   ::google::protobuf::int64 gym_points_;
+  ::google::protobuf::RepeatedField<int> active_fort_modifier_;
+  mutable int _active_fort_modifier_cached_byte_size_;
   ::google::protobuf::int32 guard_pokemon_cp_;
   int sponsor_;
-  ::google::protobuf::int64 cooldown_complete_timestamp_ms_;
-  ::google::protobuf::internal::ArenaStringPtr active_fort_modifier_;
   ::POGOProtos::Map::Fort::FortLureInfo* lure_info_;
+  ::google::protobuf::int64 cooldown_complete_timestamp_ms_;
   int rendering_type_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_POGOProtos_2fMap_2fFort_2fFortData_2eproto();
@@ -438,6 +439,74 @@ inline void FortData::set_is_in_battle(bool value) {
   // @@protoc_insertion_point(field_set:POGOProtos.Map.Fort.FortData.is_in_battle)
 }
 
+// repeated .POGOProtos.Inventory.Item.ItemId active_fort_modifier = 12;
+inline int FortData::active_fort_modifier_size() const {
+  return active_fort_modifier_.size();
+}
+inline void FortData::clear_active_fort_modifier() {
+  active_fort_modifier_.Clear();
+}
+inline ::POGOProtos::Inventory::Item::ItemId FortData::active_fort_modifier(int index) const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+  return static_cast< ::POGOProtos::Inventory::Item::ItemId >(active_fort_modifier_.Get(index));
+}
+inline void FortData::set_active_fort_modifier(int index, ::POGOProtos::Inventory::Item::ItemId value) {
+  active_fort_modifier_.Set(index, value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+}
+inline void FortData::add_active_fort_modifier(::POGOProtos::Inventory::Item::ItemId value) {
+  active_fort_modifier_.Add(value);
+  // @@protoc_insertion_point(field_add:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+}
+inline const ::google::protobuf::RepeatedField<int>&
+FortData::active_fort_modifier() const {
+  // @@protoc_insertion_point(field_list:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+  return active_fort_modifier_;
+}
+inline ::google::protobuf::RepeatedField<int>*
+FortData::mutable_active_fort_modifier() {
+  // @@protoc_insertion_point(field_mutable_list:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+  return &active_fort_modifier_;
+}
+
+// optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
+inline bool FortData::has_lure_info() const {
+  return !_is_default_instance_ && lure_info_ != NULL;
+}
+inline void FortData::clear_lure_info() {
+  if (GetArenaNoVirtual() == NULL && lure_info_ != NULL) delete lure_info_;
+  lure_info_ = NULL;
+}
+inline const ::POGOProtos::Map::Fort::FortLureInfo& FortData::lure_info() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Map.Fort.FortData.lure_info)
+  return lure_info_ != NULL ? *lure_info_ : *default_instance_->lure_info_;
+}
+inline ::POGOProtos::Map::Fort::FortLureInfo* FortData::mutable_lure_info() {
+  
+  if (lure_info_ == NULL) {
+    lure_info_ = new ::POGOProtos::Map::Fort::FortLureInfo;
+  }
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Map.Fort.FortData.lure_info)
+  return lure_info_;
+}
+inline ::POGOProtos::Map::Fort::FortLureInfo* FortData::release_lure_info() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Map.Fort.FortData.lure_info)
+  
+  ::POGOProtos::Map::Fort::FortLureInfo* temp = lure_info_;
+  lure_info_ = NULL;
+  return temp;
+}
+inline void FortData::set_allocated_lure_info(::POGOProtos::Map::Fort::FortLureInfo* lure_info) {
+  delete lure_info_;
+  lure_info_ = lure_info;
+  if (lure_info) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Map.Fort.FortData.lure_info)
+}
+
 // optional int64 cooldown_complete_timestamp_ms = 14;
 inline void FortData::clear_cooldown_complete_timestamp_ms() {
   cooldown_complete_timestamp_ms_ = GOOGLE_LONGLONG(0);
@@ -478,88 +547,6 @@ inline void FortData::set_rendering_type(::POGOProtos::Map::Fort::FortRenderingT
   
   rendering_type_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Map.Fort.FortData.rendering_type)
-}
-
-// optional bytes active_fort_modifier = 12;
-inline void FortData::clear_active_fort_modifier() {
-  active_fort_modifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& FortData::active_fort_modifier() const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-  return active_fort_modifier_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void FortData::set_active_fort_modifier(const ::std::string& value) {
-  
-  active_fort_modifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-}
-inline void FortData::set_active_fort_modifier(const char* value) {
-  
-  active_fort_modifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-}
-inline void FortData::set_active_fort_modifier(const void* value, size_t size) {
-  
-  active_fort_modifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-}
-inline ::std::string* FortData::mutable_active_fort_modifier() {
-  
-  // @@protoc_insertion_point(field_mutable:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-  return active_fort_modifier_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* FortData::release_active_fort_modifier() {
-  // @@protoc_insertion_point(field_release:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-  
-  return active_fort_modifier_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void FortData::set_allocated_active_fort_modifier(::std::string* active_fort_modifier) {
-  if (active_fort_modifier != NULL) {
-    
-  } else {
-    
-  }
-  active_fort_modifier_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), active_fort_modifier);
-  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-}
-
-// optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
-inline bool FortData::has_lure_info() const {
-  return !_is_default_instance_ && lure_info_ != NULL;
-}
-inline void FortData::clear_lure_info() {
-  if (GetArenaNoVirtual() == NULL && lure_info_ != NULL) delete lure_info_;
-  lure_info_ = NULL;
-}
-inline const ::POGOProtos::Map::Fort::FortLureInfo& FortData::lure_info() const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Map.Fort.FortData.lure_info)
-  return lure_info_ != NULL ? *lure_info_ : *default_instance_->lure_info_;
-}
-inline ::POGOProtos::Map::Fort::FortLureInfo* FortData::mutable_lure_info() {
-  
-  if (lure_info_ == NULL) {
-    lure_info_ = new ::POGOProtos::Map::Fort::FortLureInfo;
-  }
-  // @@protoc_insertion_point(field_mutable:POGOProtos.Map.Fort.FortData.lure_info)
-  return lure_info_;
-}
-inline ::POGOProtos::Map::Fort::FortLureInfo* FortData::release_lure_info() {
-  // @@protoc_insertion_point(field_release:POGOProtos.Map.Fort.FortData.lure_info)
-  
-  ::POGOProtos::Map::Fort::FortLureInfo* temp = lure_info_;
-  lure_info_ = NULL;
-  return temp;
-}
-inline void FortData::set_allocated_lure_info(::POGOProtos::Map::Fort::FortLureInfo* lure_info) {
-  delete lure_info_;
-  lure_info_ = lure_info;
-  if (lure_info) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Map.Fort.FortData.lure_info)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

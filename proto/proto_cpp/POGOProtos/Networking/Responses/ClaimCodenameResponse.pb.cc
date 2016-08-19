@@ -39,11 +39,12 @@ void protobuf_AssignDesc_POGOProtos_2fNetworking_2fResponses_2fClaimCodenameResp
       "POGOProtos/Networking/Responses/ClaimCodenameResponse.proto");
   GOOGLE_CHECK(file != NULL);
   ClaimCodenameResponse_descriptor_ = file->message_type(0);
-  static const int ClaimCodenameResponse_offsets_[4] = {
+  static const int ClaimCodenameResponse_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClaimCodenameResponse, codename_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClaimCodenameResponse, user_message_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClaimCodenameResponse, is_assignable_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClaimCodenameResponse, status_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ClaimCodenameResponse, updated_player_),
   };
   ClaimCodenameResponse_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -88,18 +89,21 @@ void protobuf_AddDesc_POGOProtos_2fNetworking_2fResponses_2fClaimCodenameRespons
   already_here = true;
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
+  ::POGOProtos::Data::protobuf_AddDesc_POGOProtos_2fData_2fPlayerData_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n;POGOProtos/Networking/Responses/ClaimC"
     "odenameResponse.proto\022\037POGOProtos.Networ"
-    "king.Responses\"\260\002\n\025ClaimCodenameResponse"
-    "\022\020\n\010codename\030\001 \001(\t\022\024\n\014user_message\030\002 \001(\t"
-    "\022\025\n\ris_assignable\030\003 \001(\010\022M\n\006status\030\004 \001(\0162"
-    "=.POGOProtos.Networking.Responses.ClaimC"
-    "odenameResponse.Status\"\210\001\n\006Status\022\t\n\005UNS"
-    "ET\020\000\022\013\n\007SUCCESS\020\001\022\032\n\026CODENAME_NOT_AVAILA"
-    "BLE\020\002\022\026\n\022CODENAME_NOT_VALID\020\003\022\021\n\rCURRENT"
-    "_OWNER\020\004\022\037\n\033CODENAME_CHANGE_NOT_ALLOWED\020"
-    "\005b\006proto3", 409);
+    "king.Responses\032 POGOProtos/Data/PlayerDa"
+    "ta.proto\"\345\002\n\025ClaimCodenameResponse\022\020\n\010co"
+    "dename\030\001 \001(\t\022\024\n\014user_message\030\002 \001(\t\022\025\n\ris"
+    "_assignable\030\003 \001(\010\022M\n\006status\030\004 \001(\0162=.POGO"
+    "Protos.Networking.Responses.ClaimCodenam"
+    "eResponse.Status\0223\n\016updated_player\030\005 \001(\013"
+    "2\033.POGOProtos.Data.PlayerData\"\210\001\n\006Status"
+    "\022\t\n\005UNSET\020\000\022\013\n\007SUCCESS\020\001\022\032\n\026CODENAME_NOT"
+    "_AVAILABLE\020\002\022\026\n\022CODENAME_NOT_VALID\020\003\022\021\n\r"
+    "CURRENT_OWNER\020\004\022\037\n\033CODENAME_CHANGE_NOT_A"
+    "LLOWED\020\005b\006proto3", 496);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "POGOProtos/Networking/Responses/ClaimCodenameResponse.proto", &protobuf_RegisterTypes);
   ClaimCodenameResponse::default_instance_ = new ClaimCodenameResponse();
@@ -150,6 +154,7 @@ const int ClaimCodenameResponse::kCodenameFieldNumber;
 const int ClaimCodenameResponse::kUserMessageFieldNumber;
 const int ClaimCodenameResponse::kIsAssignableFieldNumber;
 const int ClaimCodenameResponse::kStatusFieldNumber;
+const int ClaimCodenameResponse::kUpdatedPlayerFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 ClaimCodenameResponse::ClaimCodenameResponse()
@@ -160,6 +165,7 @@ ClaimCodenameResponse::ClaimCodenameResponse()
 
 void ClaimCodenameResponse::InitAsDefaultInstance() {
   _is_default_instance_ = true;
+  updated_player_ = const_cast< ::POGOProtos::Data::PlayerData*>(&::POGOProtos::Data::PlayerData::default_instance());
 }
 
 ClaimCodenameResponse::ClaimCodenameResponse(const ClaimCodenameResponse& from)
@@ -178,6 +184,7 @@ void ClaimCodenameResponse::SharedCtor() {
   user_message_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   is_assignable_ = false;
   status_ = 0;
+  updated_player_ = NULL;
 }
 
 ClaimCodenameResponse::~ClaimCodenameResponse() {
@@ -189,6 +196,7 @@ void ClaimCodenameResponse::SharedDtor() {
   codename_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_message_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
+    delete updated_player_;
   }
 }
 
@@ -238,6 +246,8 @@ void ClaimCodenameResponse::Clear() {
   ZR_(is_assignable_, status_);
   codename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   user_message_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && updated_player_ != NULL) delete updated_player_;
+  updated_player_ = NULL;
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -314,6 +324,19 @@ bool ClaimCodenameResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(42)) goto parse_updated_player;
+        break;
+      }
+
+      // optional .POGOProtos.Data.PlayerData updated_player = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_updated_player:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_updated_player()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -373,6 +396,12 @@ void ClaimCodenameResponse::SerializeWithCachedSizes(
       4, this->status(), output);
   }
 
+  // optional .POGOProtos.Data.PlayerData updated_player = 5;
+  if (this->has_updated_player()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, *this->updated_player_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:POGOProtos.Networking.Responses.ClaimCodenameResponse)
 }
 
@@ -412,6 +441,13 @@ void ClaimCodenameResponse::SerializeWithCachedSizes(
       4, this->status(), target);
   }
 
+  // optional .POGOProtos.Data.PlayerData updated_player = 5;
+  if (this->has_updated_player()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, *this->updated_player_, false, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:POGOProtos.Networking.Responses.ClaimCodenameResponse)
   return target;
 }
@@ -443,6 +479,13 @@ int ClaimCodenameResponse::ByteSize() const {
   if (this->status() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->status());
+  }
+
+  // optional .POGOProtos.Data.PlayerData updated_player = 5;
+  if (this->has_updated_player()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->updated_player_);
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -487,6 +530,9 @@ void ClaimCodenameResponse::MergeFrom(const ClaimCodenameResponse& from) {
   if (from.status() != 0) {
     set_status(from.status());
   }
+  if (from.has_updated_player()) {
+    mutable_updated_player()->::POGOProtos::Data::PlayerData::MergeFrom(from.updated_player());
+  }
 }
 
 void ClaimCodenameResponse::CopyFrom(const ::google::protobuf::Message& from) {
@@ -517,6 +563,7 @@ void ClaimCodenameResponse::InternalSwap(ClaimCodenameResponse* other) {
   user_message_.Swap(&other->user_message_);
   std::swap(is_assignable_, other->is_assignable_);
   std::swap(status_, other->status_);
+  std::swap(updated_player_, other->updated_player_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -646,6 +693,44 @@ void ClaimCodenameResponse::clear_status() {
   
   status_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Networking.Responses.ClaimCodenameResponse.status)
+}
+
+// optional .POGOProtos.Data.PlayerData updated_player = 5;
+bool ClaimCodenameResponse::has_updated_player() const {
+  return !_is_default_instance_ && updated_player_ != NULL;
+}
+void ClaimCodenameResponse::clear_updated_player() {
+  if (GetArenaNoVirtual() == NULL && updated_player_ != NULL) delete updated_player_;
+  updated_player_ = NULL;
+}
+const ::POGOProtos::Data::PlayerData& ClaimCodenameResponse::updated_player() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Responses.ClaimCodenameResponse.updated_player)
+  return updated_player_ != NULL ? *updated_player_ : *default_instance_->updated_player_;
+}
+::POGOProtos::Data::PlayerData* ClaimCodenameResponse::mutable_updated_player() {
+  
+  if (updated_player_ == NULL) {
+    updated_player_ = new ::POGOProtos::Data::PlayerData;
+  }
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Responses.ClaimCodenameResponse.updated_player)
+  return updated_player_;
+}
+::POGOProtos::Data::PlayerData* ClaimCodenameResponse::release_updated_player() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Responses.ClaimCodenameResponse.updated_player)
+  
+  ::POGOProtos::Data::PlayerData* temp = updated_player_;
+  updated_player_ = NULL;
+  return temp;
+}
+void ClaimCodenameResponse::set_allocated_updated_player(::POGOProtos::Data::PlayerData* updated_player) {
+  delete updated_player_;
+  updated_player_ = updated_player;
+  if (updated_player) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Responses.ClaimCodenameResponse.updated_player)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

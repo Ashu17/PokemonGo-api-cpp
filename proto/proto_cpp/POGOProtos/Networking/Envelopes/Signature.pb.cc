@@ -53,7 +53,7 @@ void protobuf_AssignDesc_POGOProtos_2fNetworking_2fEnvelopes_2fSignature_2eproto
       "POGOProtos/Networking/Envelopes/Signature.proto");
   GOOGLE_CHECK(file != NULL);
   Signature_descriptor_ = file->message_type(0);
-  static const int Signature_offsets_[11] = {
+  static const int Signature_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, timestamp_since_start_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, location_fix_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, gps_info_),
@@ -62,9 +62,10 @@ void protobuf_AssignDesc_POGOProtos_2fNetworking_2fEnvelopes_2fSignature_2eproto
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, activity_status_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, location_hash1_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, location_hash2_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, unknown22_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, session_hash_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, timestamp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, request_hash_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature, unknown25_),
   };
   Signature_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -80,7 +81,7 @@ void protobuf_AssignDesc_POGOProtos_2fNetworking_2fEnvelopes_2fSignature_2eproto
   Signature_LocationFix_descriptor_ = Signature_descriptor_->nested_type(0);
   static const int Signature_LocationFix_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_LocationFix, provider_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_LocationFix, timestamp_since_start_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_LocationFix, timestamp_snapshot_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_LocationFix, latitude_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_LocationFix, longitude_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_LocationFix, horizontal_accuracy_),
@@ -258,7 +259,7 @@ void protobuf_AddDesc_POGOProtos_2fNetworking_2fEnvelopes_2fSignature_2eproto() 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n/POGOProtos/Networking/Envelopes/Signat"
     "ure.proto\022\037POGOProtos.Networking.Envelop"
-    "es\"\232\017\n\tSignature\022\035\n\025timestamp_since_star"
+    "es\"\255\017\n\tSignature\022\035\n\025timestamp_since_star"
     "t\030\002 \001(\004\022L\n\014location_fix\030\004 \003(\01326.POGOProt"
     "os.Networking.Envelopes.Signature.Locati"
     "onFix\022K\n\010gps_info\030\005 \001(\01329.POGOProtos.Net"
@@ -269,44 +270,45 @@ void protobuf_AddDesc_POGOProtos_2fNetworking_2fEnvelopes_2fSignature_2eproto() 
     "ing.Envelopes.Signature.DeviceInfo\022R\n\017ac"
     "tivity_status\030\t \001(\01329.POGOProtos.Network"
     "ing.Envelopes.Signature.ActivityStatus\022\026"
-    "\n\016location_hash1\030\n \001(\r\022\026\n\016location_hash2"
-    "\030\024 \001(\r\022\021\n\tunknown22\030\026 \001(\014\022\021\n\ttimestamp\030\027"
-    " \001(\004\022\024\n\014request_hash\030\030 \003(\004\032\354\001\n\013LocationF"
-    "ix\022\020\n\010provider\030\001 \001(\t\022\035\n\025timestamp_since_"
-    "start\030\002 \001(\004\022\020\n\010latitude\030\r \001(\002\022\021\n\tlongitu"
-    "de\030\016 \001(\002\022\033\n\023horizontal_accuracy\030\024 \001(\002\022\020\n"
-    "\010altitude\030\025 \001(\002\022\031\n\021vertical_accuracy\030\026 \001"
-    "(\002\022\027\n\017provider_status\030\032 \001(\004\022\r\n\005floor\030\033 \001"
-    "(\r\022\025\n\rlocation_type\030\034 \001(\004\032\257\001\n\016AndroidGps"
-    "Info\022\023\n\013time_to_fix\030\001 \001(\004\022\026\n\016satellites_"
-    "prn\030\002 \003(\005\022\013\n\003snr\030\003 \003(\002\022\017\n\007azimuth\030\004 \003(\002\022"
-    "\021\n\televation\030\005 \003(\002\022\023\n\013has_almanac\030\006 \003(\010\022"
-    "\025\n\rhas_ephemeris\030\007 \003(\010\022\023\n\013used_in_fix\030\010 "
-    "\003(\010\032\276\003\n\nSensorInfo\022\032\n\022timestamp_snapshot"
-    "\030\001 \001(\004\022\026\n\016magnetometer_x\030\003 \001(\001\022\026\n\016magnet"
-    "ometer_y\030\004 \001(\001\022\026\n\016magnetometer_z\030\005 \001(\001\022\032"
-    "\n\022angle_normalized_x\030\006 \001(\001\022\032\n\022angle_norm"
-    "alized_y\030\007 \001(\001\022\032\n\022angle_normalized_z\030\010 \001"
-    "(\001\022\023\n\013accel_raw_x\030\n \001(\001\022\023\n\013accel_raw_y\030\013"
-    " \001(\001\022\023\n\013accel_raw_z\030\014 \001(\001\022\027\n\017gyroscope_r"
-    "aw_x\030\r \001(\001\022\027\n\017gyroscope_raw_y\030\016 \001(\001\022\027\n\017g"
-    "yroscope_raw_z\030\017 \001(\001\022\032\n\022accel_normalized"
-    "_x\030\020 \001(\001\022\032\n\022accel_normalized_y\030\021 \001(\001\022\032\n\022"
-    "accel_normalized_z\030\022 \001(\001\022\032\n\022acceleromete"
-    "r_axes\030\023 \001(\004\032\332\002\n\nDeviceInfo\022\021\n\tdevice_id"
-    "\030\001 \001(\t\022\032\n\022android_board_name\030\002 \001(\t\022\032\n\022an"
-    "droid_bootloader\030\003 \001(\t\022\024\n\014device_brand\030\004"
-    " \001(\t\022\024\n\014device_model\030\005 \001(\t\022\037\n\027device_mod"
-    "el_identifier\030\006 \001(\t\022\031\n\021device_model_boot"
-    "\030\007 \001(\t\022\035\n\025hardware_manufacturer\030\010 \001(\t\022\026\n"
-    "\016hardware_model\030\t \001(\t\022\026\n\016firmware_brand\030"
-    "\n \001(\t\022\025\n\rfirmware_tags\030\014 \001(\t\022\025\n\rfirmware"
-    "_type\030\r \001(\t\022\034\n\024firmware_fingerprint\030\016 \001("
-    "\t\032\273\001\n\016ActivityStatus\022\025\n\rstart_time_ms\030\001 "
-    "\001(\004\022\026\n\016unknown_status\030\002 \001(\010\022\017\n\007walking\030\003"
-    " \001(\010\022\017\n\007running\030\004 \001(\010\022\022\n\nstationary\030\005 \001("
-    "\010\022\022\n\nautomotive\030\006 \001(\010\022\017\n\007tilting\030\007 \001(\010\022\017"
-    "\n\007cycling\030\010 \001(\010\022\016\n\006status\030\t \001(\014b\006proto3", 2039);
+    "\n\016location_hash1\030\n \001(\004\022\026\n\016location_hash2"
+    "\030\024 \001(\004\022\024\n\014session_hash\030\026 \001(\014\022\021\n\ttimestam"
+    "p\030\027 \001(\004\022\024\n\014request_hash\030\030 \003(\004\022\021\n\tunknown"
+    "25\030\031 \001(\003\032\351\001\n\013LocationFix\022\020\n\010provider\030\001 \001"
+    "(\t\022\032\n\022timestamp_snapshot\030\002 \001(\004\022\020\n\010latitu"
+    "de\030\r \001(\002\022\021\n\tlongitude\030\016 \001(\002\022\033\n\023horizonta"
+    "l_accuracy\030\024 \001(\002\022\020\n\010altitude\030\025 \001(\002\022\031\n\021ve"
+    "rtical_accuracy\030\026 \001(\002\022\027\n\017provider_status"
+    "\030\032 \001(\004\022\r\n\005floor\030\033 \001(\r\022\025\n\rlocation_type\030\034"
+    " \001(\004\032\257\001\n\016AndroidGpsInfo\022\023\n\013time_to_fix\030\001"
+    " \001(\004\022\026\n\016satellites_prn\030\002 \003(\005\022\013\n\003snr\030\003 \003("
+    "\002\022\017\n\007azimuth\030\004 \003(\002\022\021\n\televation\030\005 \003(\002\022\023\n"
+    "\013has_almanac\030\006 \003(\010\022\025\n\rhas_ephemeris\030\007 \003("
+    "\010\022\023\n\013used_in_fix\030\010 \003(\010\032\276\003\n\nSensorInfo\022\032\n"
+    "\022timestamp_snapshot\030\001 \001(\004\022\026\n\016magnetomete"
+    "r_x\030\003 \001(\001\022\026\n\016magnetometer_y\030\004 \001(\001\022\026\n\016mag"
+    "netometer_z\030\005 \001(\001\022\032\n\022angle_normalized_x\030"
+    "\006 \001(\001\022\032\n\022angle_normalized_y\030\007 \001(\001\022\032\n\022ang"
+    "le_normalized_z\030\010 \001(\001\022\023\n\013accel_raw_x\030\n \001"
+    "(\001\022\023\n\013accel_raw_y\030\013 \001(\001\022\023\n\013accel_raw_z\030\014"
+    " \001(\001\022\027\n\017gyroscope_raw_x\030\r \001(\001\022\027\n\017gyrosco"
+    "pe_raw_y\030\016 \001(\001\022\027\n\017gyroscope_raw_z\030\017 \001(\001\022"
+    "\032\n\022accel_normalized_x\030\020 \001(\001\022\032\n\022accel_nor"
+    "malized_y\030\021 \001(\001\022\032\n\022accel_normalized_z\030\022 "
+    "\001(\001\022\032\n\022accelerometer_axes\030\023 \001(\004\032\332\002\n\nDevi"
+    "ceInfo\022\021\n\tdevice_id\030\001 \001(\t\022\032\n\022android_boa"
+    "rd_name\030\002 \001(\t\022\032\n\022android_bootloader\030\003 \001("
+    "\t\022\024\n\014device_brand\030\004 \001(\t\022\024\n\014device_model\030"
+    "\005 \001(\t\022\037\n\027device_model_identifier\030\006 \001(\t\022\031"
+    "\n\021device_model_boot\030\007 \001(\t\022\035\n\025hardware_ma"
+    "nufacturer\030\010 \001(\t\022\026\n\016hardware_model\030\t \001(\t"
+    "\022\026\n\016firmware_brand\030\n \001(\t\022\025\n\rfirmware_tag"
+    "s\030\014 \001(\t\022\025\n\rfirmware_type\030\r \001(\t\022\034\n\024firmwa"
+    "re_fingerprint\030\016 \001(\t\032\273\001\n\016ActivityStatus\022"
+    "\025\n\rstart_time_ms\030\001 \001(\004\022\026\n\016unknown_status"
+    "\030\002 \001(\010\022\017\n\007walking\030\003 \001(\010\022\017\n\007running\030\004 \001(\010"
+    "\022\022\n\nstationary\030\005 \001(\010\022\022\n\nautomotive\030\006 \001(\010"
+    "\022\017\n\007tilting\030\007 \001(\010\022\017\n\007cycling\030\010 \001(\010\022\016\n\006st"
+    "atus\030\t \001(\014b\006proto3", 2058);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "POGOProtos/Networking/Envelopes/Signature.proto", &protobuf_RegisterTypes);
   Signature::default_instance_ = new Signature();
@@ -335,7 +337,7 @@ struct StaticDescriptorInitializer_POGOProtos_2fNetworking_2fEnvelopes_2fSignatu
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Signature_LocationFix::kProviderFieldNumber;
-const int Signature_LocationFix::kTimestampSinceStartFieldNumber;
+const int Signature_LocationFix::kTimestampSnapshotFieldNumber;
 const int Signature_LocationFix::kLatitudeFieldNumber;
 const int Signature_LocationFix::kLongitudeFieldNumber;
 const int Signature_LocationFix::kHorizontalAccuracyFieldNumber;
@@ -369,7 +371,7 @@ void Signature_LocationFix::SharedCtor() {
   ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   provider_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  timestamp_since_start_ = GOOGLE_ULONGLONG(0);
+  timestamp_snapshot_ = GOOGLE_ULONGLONG(0);
   latitude_ = 0;
   longitude_ = 0;
   horizontal_accuracy_ = 0;
@@ -434,7 +436,7 @@ void Signature_LocationFix::Clear() {
            ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
 } while (0)
 
-  ZR_(timestamp_since_start_, vertical_accuracy_);
+  ZR_(timestamp_snapshot_, vertical_accuracy_);
   provider_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ZR_(floor_, location_type_);
 
@@ -465,17 +467,17 @@ bool Signature_LocationFix::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(16)) goto parse_timestamp_since_start;
+        if (input->ExpectTag(16)) goto parse_timestamp_snapshot;
         break;
       }
 
-      // optional uint64 timestamp_since_start = 2;
+      // optional uint64 timestamp_snapshot = 2;
       case 2: {
         if (tag == 16) {
-         parse_timestamp_since_start:
+         parse_timestamp_snapshot:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &timestamp_since_start_)));
+                 input, &timestamp_snapshot_)));
 
         } else {
           goto handle_unusual;
@@ -638,9 +640,9 @@ void Signature_LocationFix::SerializeWithCachedSizes(
       1, this->provider(), output);
   }
 
-  // optional uint64 timestamp_since_start = 2;
-  if (this->timestamp_since_start() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->timestamp_since_start(), output);
+  // optional uint64 timestamp_snapshot = 2;
+  if (this->timestamp_snapshot() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->timestamp_snapshot(), output);
   }
 
   // optional float latitude = 13;
@@ -700,9 +702,9 @@ void Signature_LocationFix::SerializeWithCachedSizes(
         1, this->provider(), target);
   }
 
-  // optional uint64 timestamp_since_start = 2;
-  if (this->timestamp_since_start() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->timestamp_since_start(), target);
+  // optional uint64 timestamp_snapshot = 2;
+  if (this->timestamp_snapshot() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->timestamp_snapshot(), target);
   }
 
   // optional float latitude = 13;
@@ -760,11 +762,11 @@ int Signature_LocationFix::ByteSize() const {
         this->provider());
   }
 
-  // optional uint64 timestamp_since_start = 2;
-  if (this->timestamp_since_start() != 0) {
+  // optional uint64 timestamp_snapshot = 2;
+  if (this->timestamp_snapshot() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->timestamp_since_start());
+        this->timestamp_snapshot());
   }
 
   // optional float latitude = 13;
@@ -845,8 +847,8 @@ void Signature_LocationFix::MergeFrom(const Signature_LocationFix& from) {
 
     provider_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.provider_);
   }
-  if (from.timestamp_since_start() != 0) {
-    set_timestamp_since_start(from.timestamp_since_start());
+  if (from.timestamp_snapshot() != 0) {
+    set_timestamp_snapshot(from.timestamp_snapshot());
   }
   if (from.latitude() != 0) {
     set_latitude(from.latitude());
@@ -899,7 +901,7 @@ void Signature_LocationFix::Swap(Signature_LocationFix* other) {
 }
 void Signature_LocationFix::InternalSwap(Signature_LocationFix* other) {
   provider_.Swap(&other->provider_);
-  std::swap(timestamp_since_start_, other->timestamp_since_start_);
+  std::swap(timestamp_snapshot_, other->timestamp_snapshot_);
   std::swap(latitude_, other->latitude_);
   std::swap(longitude_, other->longitude_);
   std::swap(horizontal_accuracy_, other->horizontal_accuracy_);
@@ -3814,9 +3816,10 @@ const int Signature::kDeviceInfoFieldNumber;
 const int Signature::kActivityStatusFieldNumber;
 const int Signature::kLocationHash1FieldNumber;
 const int Signature::kLocationHash2FieldNumber;
-const int Signature::kUnknown22FieldNumber;
+const int Signature::kSessionHashFieldNumber;
 const int Signature::kTimestampFieldNumber;
 const int Signature::kRequestHashFieldNumber;
+const int Signature::kUnknown25FieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Signature::Signature()
@@ -3850,10 +3853,11 @@ void Signature::SharedCtor() {
   sensor_info_ = NULL;
   device_info_ = NULL;
   activity_status_ = NULL;
-  location_hash1_ = 0u;
-  location_hash2_ = 0u;
-  unknown22_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  location_hash1_ = GOOGLE_ULONGLONG(0);
+  location_hash2_ = GOOGLE_ULONGLONG(0);
+  session_hash_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   timestamp_ = GOOGLE_ULONGLONG(0);
+  unknown25_ = GOOGLE_LONGLONG(0);
 }
 
 Signature::~Signature() {
@@ -3862,7 +3866,7 @@ Signature::~Signature() {
 }
 
 void Signature::SharedDtor() {
-  unknown22_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  session_hash_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
     delete gps_info_;
     delete sensor_info_;
@@ -3924,8 +3928,9 @@ void Signature::Clear() {
   device_info_ = NULL;
   if (GetArenaNoVirtual() == NULL && activity_status_ != NULL) delete activity_status_;
   activity_status_ = NULL;
-  unknown22_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  session_hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   timestamp_ = GOOGLE_ULONGLONG(0);
+  unknown25_ = GOOGLE_LONGLONG(0);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -4027,12 +4032,12 @@ bool Signature::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 location_hash1 = 10;
+      // optional uint64 location_hash1 = 10;
       case 10: {
         if (tag == 80) {
          parse_location_hash1:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &location_hash1_)));
 
         } else {
@@ -4042,27 +4047,27 @@ bool Signature::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 location_hash2 = 20;
+      // optional uint64 location_hash2 = 20;
       case 20: {
         if (tag == 160) {
          parse_location_hash2:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &location_hash2_)));
 
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(178)) goto parse_unknown22;
+        if (input->ExpectTag(178)) goto parse_session_hash;
         break;
       }
 
-      // optional bytes unknown22 = 22;
+      // optional bytes session_hash = 22;
       case 22: {
         if (tag == 178) {
-         parse_unknown22:
+         parse_session_hash:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_unknown22()));
+                input, this->mutable_session_hash()));
         } else {
           goto handle_unusual;
         }
@@ -4096,6 +4101,21 @@ bool Signature::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  2, 194, input, this->mutable_request_hash())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(200)) goto parse_unknown25;
+        break;
+      }
+
+      // optional int64 unknown25 = 25;
+      case 25: {
+        if (tag == 200) {
+         parse_unknown25:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &unknown25_)));
+
         } else {
           goto handle_unusual;
         }
@@ -4162,20 +4182,20 @@ void Signature::SerializeWithCachedSizes(
       9, *this->activity_status_, output);
   }
 
-  // optional uint32 location_hash1 = 10;
+  // optional uint64 location_hash1 = 10;
   if (this->location_hash1() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(10, this->location_hash1(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(10, this->location_hash1(), output);
   }
 
-  // optional uint32 location_hash2 = 20;
+  // optional uint64 location_hash2 = 20;
   if (this->location_hash2() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(20, this->location_hash2(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(20, this->location_hash2(), output);
   }
 
-  // optional bytes unknown22 = 22;
-  if (this->unknown22().size() > 0) {
+  // optional bytes session_hash = 22;
+  if (this->session_hash().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      22, this->unknown22(), output);
+      22, this->session_hash(), output);
   }
 
   // optional uint64 timestamp = 23;
@@ -4191,6 +4211,11 @@ void Signature::SerializeWithCachedSizes(
   for (int i = 0; i < this->request_hash_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt64NoTag(
       this->request_hash(i), output);
+  }
+
+  // optional int64 unknown25 = 25;
+  if (this->unknown25() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(25, this->unknown25(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:POGOProtos.Networking.Envelopes.Signature)
@@ -4239,21 +4264,21 @@ void Signature::SerializeWithCachedSizes(
         9, *this->activity_status_, false, target);
   }
 
-  // optional uint32 location_hash1 = 10;
+  // optional uint64 location_hash1 = 10;
   if (this->location_hash1() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(10, this->location_hash1(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(10, this->location_hash1(), target);
   }
 
-  // optional uint32 location_hash2 = 20;
+  // optional uint64 location_hash2 = 20;
   if (this->location_hash2() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(20, this->location_hash2(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(20, this->location_hash2(), target);
   }
 
-  // optional bytes unknown22 = 22;
-  if (this->unknown22().size() > 0) {
+  // optional bytes session_hash = 22;
+  if (this->session_hash().size() > 0) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        22, this->unknown22(), target);
+        22, this->session_hash(), target);
   }
 
   // optional uint64 timestamp = 23;
@@ -4273,6 +4298,11 @@ void Signature::SerializeWithCachedSizes(
   for (int i = 0; i < this->request_hash_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteUInt64NoTagToArray(this->request_hash(i), target);
+  }
+
+  // optional int64 unknown25 = 25;
+  if (this->unknown25() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(25, this->unknown25(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:POGOProtos.Networking.Envelopes.Signature)
@@ -4318,25 +4348,25 @@ int Signature::ByteSize() const {
         *this->activity_status_);
   }
 
-  // optional uint32 location_hash1 = 10;
+  // optional uint64 location_hash1 = 10;
   if (this->location_hash1() != 0) {
     total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->location_hash1());
   }
 
-  // optional uint32 location_hash2 = 20;
+  // optional uint64 location_hash2 = 20;
   if (this->location_hash2() != 0) {
     total_size += 2 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+      ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->location_hash2());
   }
 
-  // optional bytes unknown22 = 22;
-  if (this->unknown22().size() > 0) {
+  // optional bytes session_hash = 22;
+  if (this->session_hash().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->unknown22());
+        this->session_hash());
   }
 
   // optional uint64 timestamp = 23;
@@ -4344,6 +4374,13 @@ int Signature::ByteSize() const {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::UInt64Size(
         this->timestamp());
+  }
+
+  // optional int64 unknown25 = 25;
+  if (this->unknown25() != 0) {
+    total_size += 2 +
+      ::google::protobuf::internal::WireFormatLite::Int64Size(
+        this->unknown25());
   }
 
   // repeated .POGOProtos.Networking.Envelopes.Signature.LocationFix location_fix = 4;
@@ -4422,12 +4459,15 @@ void Signature::MergeFrom(const Signature& from) {
   if (from.location_hash2() != 0) {
     set_location_hash2(from.location_hash2());
   }
-  if (from.unknown22().size() > 0) {
+  if (from.session_hash().size() > 0) {
 
-    unknown22_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.unknown22_);
+    session_hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.session_hash_);
   }
   if (from.timestamp() != 0) {
     set_timestamp(from.timestamp());
+  }
+  if (from.unknown25() != 0) {
+    set_unknown25(from.unknown25());
   }
 }
 
@@ -4463,9 +4503,10 @@ void Signature::InternalSwap(Signature* other) {
   std::swap(activity_status_, other->activity_status_);
   std::swap(location_hash1_, other->location_hash1_);
   std::swap(location_hash2_, other->location_hash2_);
-  unknown22_.Swap(&other->unknown22_);
+  session_hash_.Swap(&other->session_hash_);
   std::swap(timestamp_, other->timestamp_);
   request_hash_.UnsafeArenaSwap(&other->request_hash_);
+  std::swap(unknown25_, other->unknown25_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -4525,18 +4566,18 @@ void Signature_LocationFix::clear_provider() {
   // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Envelopes.Signature.LocationFix.provider)
 }
 
-// optional uint64 timestamp_since_start = 2;
-void Signature_LocationFix::clear_timestamp_since_start() {
-  timestamp_since_start_ = GOOGLE_ULONGLONG(0);
+// optional uint64 timestamp_snapshot = 2;
+void Signature_LocationFix::clear_timestamp_snapshot() {
+  timestamp_snapshot_ = GOOGLE_ULONGLONG(0);
 }
- ::google::protobuf::uint64 Signature_LocationFix::timestamp_since_start() const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.LocationFix.timestamp_since_start)
-  return timestamp_since_start_;
+ ::google::protobuf::uint64 Signature_LocationFix::timestamp_snapshot() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.LocationFix.timestamp_snapshot)
+  return timestamp_snapshot_;
 }
- void Signature_LocationFix::set_timestamp_since_start(::google::protobuf::uint64 value) {
+ void Signature_LocationFix::set_timestamp_snapshot(::google::protobuf::uint64 value) {
   
-  timestamp_since_start_ = value;
-  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.LocationFix.timestamp_since_start)
+  timestamp_snapshot_ = value;
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.LocationFix.timestamp_snapshot)
 }
 
 // optional float latitude = 13;
@@ -6057,76 +6098,76 @@ void Signature::set_allocated_activity_status(::POGOProtos::Networking::Envelope
   // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Envelopes.Signature.activity_status)
 }
 
-// optional uint32 location_hash1 = 10;
+// optional uint64 location_hash1 = 10;
 void Signature::clear_location_hash1() {
-  location_hash1_ = 0u;
+  location_hash1_ = GOOGLE_ULONGLONG(0);
 }
- ::google::protobuf::uint32 Signature::location_hash1() const {
+ ::google::protobuf::uint64 Signature::location_hash1() const {
   // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.location_hash1)
   return location_hash1_;
 }
- void Signature::set_location_hash1(::google::protobuf::uint32 value) {
+ void Signature::set_location_hash1(::google::protobuf::uint64 value) {
   
   location_hash1_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.location_hash1)
 }
 
-// optional uint32 location_hash2 = 20;
+// optional uint64 location_hash2 = 20;
 void Signature::clear_location_hash2() {
-  location_hash2_ = 0u;
+  location_hash2_ = GOOGLE_ULONGLONG(0);
 }
- ::google::protobuf::uint32 Signature::location_hash2() const {
+ ::google::protobuf::uint64 Signature::location_hash2() const {
   // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.location_hash2)
   return location_hash2_;
 }
- void Signature::set_location_hash2(::google::protobuf::uint32 value) {
+ void Signature::set_location_hash2(::google::protobuf::uint64 value) {
   
   location_hash2_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.location_hash2)
 }
 
-// optional bytes unknown22 = 22;
-void Signature::clear_unknown22() {
-  unknown22_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional bytes session_hash = 22;
+void Signature::clear_session_hash() {
+  session_hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- const ::std::string& Signature::unknown22() const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.unknown22)
-  return unknown22_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+ const ::std::string& Signature::session_hash() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.session_hash)
+  return session_hash_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void Signature::set_unknown22(const ::std::string& value) {
+ void Signature::set_session_hash(const ::std::string& value) {
   
-  unknown22_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.unknown22)
+  session_hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.session_hash)
 }
- void Signature::set_unknown22(const char* value) {
+ void Signature::set_session_hash(const char* value) {
   
-  unknown22_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:POGOProtos.Networking.Envelopes.Signature.unknown22)
+  session_hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:POGOProtos.Networking.Envelopes.Signature.session_hash)
 }
- void Signature::set_unknown22(const void* value, size_t size) {
+ void Signature::set_session_hash(const void* value, size_t size) {
   
-  unknown22_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  session_hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Networking.Envelopes.Signature.unknown22)
+  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Networking.Envelopes.Signature.session_hash)
 }
- ::std::string* Signature::mutable_unknown22() {
+ ::std::string* Signature::mutable_session_hash() {
   
-  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Envelopes.Signature.unknown22)
-  return unknown22_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Envelopes.Signature.session_hash)
+  return session_hash_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- ::std::string* Signature::release_unknown22() {
-  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Envelopes.Signature.unknown22)
+ ::std::string* Signature::release_session_hash() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Envelopes.Signature.session_hash)
   
-  return unknown22_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return session_hash_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
- void Signature::set_allocated_unknown22(::std::string* unknown22) {
-  if (unknown22 != NULL) {
+ void Signature::set_allocated_session_hash(::std::string* session_hash) {
+  if (session_hash != NULL) {
     
   } else {
     
   }
-  unknown22_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), unknown22);
-  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Envelopes.Signature.unknown22)
+  session_hash_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), session_hash);
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Envelopes.Signature.session_hash)
 }
 
 // optional uint64 timestamp = 23;
@@ -6171,6 +6212,20 @@ Signature::request_hash() const {
 Signature::mutable_request_hash() {
   // @@protoc_insertion_point(field_mutable_list:POGOProtos.Networking.Envelopes.Signature.request_hash)
   return &request_hash_;
+}
+
+// optional int64 unknown25 = 25;
+void Signature::clear_unknown25() {
+  unknown25_ = GOOGLE_LONGLONG(0);
+}
+ ::google::protobuf::int64 Signature::unknown25() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.unknown25)
+  return unknown25_;
+}
+ void Signature::set_unknown25(::google::protobuf::int64 value) {
+  
+  unknown25_ = value;
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.unknown25)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

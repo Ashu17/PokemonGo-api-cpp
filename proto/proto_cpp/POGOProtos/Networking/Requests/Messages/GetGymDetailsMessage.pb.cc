@@ -39,12 +39,13 @@ void protobuf_AssignDesc_POGOProtos_2fNetworking_2fRequests_2fMessages_2fGetGymD
       "POGOProtos/Networking/Requests/Messages/GetGymDetailsMessage.proto");
   GOOGLE_CHECK(file != NULL);
   GetGymDetailsMessage_descriptor_ = file->message_type(0);
-  static const int GetGymDetailsMessage_offsets_[5] = {
+  static const int GetGymDetailsMessage_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetGymDetailsMessage, gym_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetGymDetailsMessage, player_latitude_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetGymDetailsMessage, player_longitude_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetGymDetailsMessage, gym_latitude_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetGymDetailsMessage, gym_longitude_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GetGymDetailsMessage, client_version_),
   };
   GetGymDetailsMessage_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -91,11 +92,11 @@ void protobuf_AddDesc_POGOProtos_2fNetworking_2fRequests_2fMessages_2fGetGymDeta
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\nBPOGOProtos/Networking/Requests/Message"
     "s/GetGymDetailsMessage.proto\022\'POGOProtos"
-    ".Networking.Requests.Messages\"\206\001\n\024GetGym"
+    ".Networking.Requests.Messages\"\236\001\n\024GetGym"
     "DetailsMessage\022\016\n\006gym_id\030\001 \001(\t\022\027\n\017player"
     "_latitude\030\002 \001(\001\022\030\n\020player_longitude\030\003 \001("
     "\001\022\024\n\014gym_latitude\030\004 \001(\001\022\025\n\rgym_longitude"
-    "\030\005 \001(\001b\006proto3", 254);
+    "\030\005 \001(\001\022\026\n\016client_version\030\006 \001(\tb\006proto3", 278);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "POGOProtos/Networking/Requests/Messages/GetGymDetailsMessage.proto", &protobuf_RegisterTypes);
   GetGymDetailsMessage::default_instance_ = new GetGymDetailsMessage();
@@ -118,6 +119,7 @@ const int GetGymDetailsMessage::kPlayerLatitudeFieldNumber;
 const int GetGymDetailsMessage::kPlayerLongitudeFieldNumber;
 const int GetGymDetailsMessage::kGymLatitudeFieldNumber;
 const int GetGymDetailsMessage::kGymLongitudeFieldNumber;
+const int GetGymDetailsMessage::kClientVersionFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GetGymDetailsMessage::GetGymDetailsMessage()
@@ -147,6 +149,7 @@ void GetGymDetailsMessage::SharedCtor() {
   player_longitude_ = 0;
   gym_latitude_ = 0;
   gym_longitude_ = 0;
+  client_version_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 GetGymDetailsMessage::~GetGymDetailsMessage() {
@@ -156,6 +159,7 @@ GetGymDetailsMessage::~GetGymDetailsMessage() {
 
 void GetGymDetailsMessage::SharedDtor() {
   gym_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  client_version_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -205,6 +209,7 @@ void GetGymDetailsMessage::Clear() {
 
   ZR_(player_latitude_, gym_longitude_);
   gym_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  client_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -293,6 +298,23 @@ bool GetGymDetailsMessage::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(50)) goto parse_client_version;
+        break;
+      }
+
+      // optional string client_version = 6;
+      case 6: {
+        if (tag == 50) {
+         parse_client_version:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_client_version()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->client_version().data(), this->client_version().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version"));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -351,6 +373,16 @@ void GetGymDetailsMessage::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->gym_longitude(), output);
   }
 
+  // optional string client_version = 6;
+  if (this->client_version().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->client_version().data(), this->client_version().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      6, this->client_version(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage)
 }
 
@@ -388,6 +420,17 @@ void GetGymDetailsMessage::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->gym_longitude(), target);
   }
 
+  // optional string client_version = 6;
+  if (this->client_version().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->client_version().data(), this->client_version().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->client_version(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage)
   return target;
 }
@@ -421,6 +464,13 @@ int GetGymDetailsMessage::ByteSize() const {
   // optional double gym_longitude = 5;
   if (this->gym_longitude() != 0) {
     total_size += 1 + 8;
+  }
+
+  // optional string client_version = 6;
+  if (this->client_version().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->client_version());
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -467,6 +517,10 @@ void GetGymDetailsMessage::MergeFrom(const GetGymDetailsMessage& from) {
   if (from.gym_longitude() != 0) {
     set_gym_longitude(from.gym_longitude());
   }
+  if (from.client_version().size() > 0) {
+
+    client_version_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.client_version_);
+  }
 }
 
 void GetGymDetailsMessage::CopyFrom(const ::google::protobuf::Message& from) {
@@ -498,6 +552,7 @@ void GetGymDetailsMessage::InternalSwap(GetGymDetailsMessage* other) {
   std::swap(player_longitude_, other->player_longitude_);
   std::swap(gym_latitude_, other->gym_latitude_);
   std::swap(gym_longitude_, other->gym_longitude_);
+  client_version_.Swap(&other->client_version_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -611,6 +666,50 @@ void GetGymDetailsMessage::clear_gym_longitude() {
   
   gym_longitude_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.gym_longitude)
+}
+
+// optional string client_version = 6;
+void GetGymDetailsMessage::clear_client_version() {
+  client_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& GetGymDetailsMessage::client_version() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+  return client_version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void GetGymDetailsMessage::set_client_version(const ::std::string& value) {
+  
+  client_version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+}
+ void GetGymDetailsMessage::set_client_version(const char* value) {
+  
+  client_version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+}
+ void GetGymDetailsMessage::set_client_version(const char* value, size_t size) {
+  
+  client_version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+}
+ ::std::string* GetGymDetailsMessage::mutable_client_version() {
+  
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+  return client_version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* GetGymDetailsMessage::release_client_version() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+  
+  return client_version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void GetGymDetailsMessage::set_allocated_client_version(::std::string* client_version) {
+  if (client_version != NULL) {
+    
+  } else {
+    
+  }
+  client_version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), client_version);
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

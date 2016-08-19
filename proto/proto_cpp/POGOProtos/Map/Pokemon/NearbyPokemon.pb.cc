@@ -38,10 +38,12 @@ void protobuf_AssignDesc_POGOProtos_2fMap_2fPokemon_2fNearbyPokemon_2eproto() {
       "POGOProtos/Map/Pokemon/NearbyPokemon.proto");
   GOOGLE_CHECK(file != NULL);
   NearbyPokemon_descriptor_ = file->message_type(0);
-  static const int NearbyPokemon_offsets_[3] = {
+  static const int NearbyPokemon_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NearbyPokemon, pokemon_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NearbyPokemon, distance_in_meters_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NearbyPokemon, encounter_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NearbyPokemon, fort_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NearbyPokemon, fort_image_url_),
   };
   NearbyPokemon_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -89,10 +91,11 @@ void protobuf_AddDesc_POGOProtos_2fMap_2fPokemon_2fNearbyPokemon_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n*POGOProtos/Map/Pokemon/NearbyPokemon.p"
     "roto\022\026POGOProtos.Map.Pokemon\032 POGOProtos"
-    "/Enums/PokemonId.proto\"r\n\rNearbyPokemon\022"
-    "/\n\npokemon_id\030\001 \001(\0162\033.POGOProtos.Enums.P"
-    "okemonId\022\032\n\022distance_in_meters\030\002 \001(\002\022\024\n\014"
-    "encounter_id\030\003 \001(\006b\006proto3", 226);
+    "/Enums/PokemonId.proto\"\233\001\n\rNearbyPokemon"
+    "\022/\n\npokemon_id\030\001 \001(\0162\033.POGOProtos.Enums."
+    "PokemonId\022\032\n\022distance_in_meters\030\002 \001(\002\022\024\n"
+    "\014encounter_id\030\003 \001(\006\022\017\n\007fort_id\030\004 \001(\t\022\026\n\016"
+    "fort_image_url\030\005 \001(\tb\006proto3", 268);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "POGOProtos/Map/Pokemon/NearbyPokemon.proto", &protobuf_RegisterTypes);
   NearbyPokemon::default_instance_ = new NearbyPokemon();
@@ -113,6 +116,8 @@ struct StaticDescriptorInitializer_POGOProtos_2fMap_2fPokemon_2fNearbyPokemon_2e
 const int NearbyPokemon::kPokemonIdFieldNumber;
 const int NearbyPokemon::kDistanceInMetersFieldNumber;
 const int NearbyPokemon::kEncounterIdFieldNumber;
+const int NearbyPokemon::kFortIdFieldNumber;
+const int NearbyPokemon::kFortImageUrlFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 NearbyPokemon::NearbyPokemon()
@@ -135,10 +140,13 @@ NearbyPokemon::NearbyPokemon(const NearbyPokemon& from)
 
 void NearbyPokemon::SharedCtor() {
     _is_default_instance_ = false;
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   pokemon_id_ = 0;
   distance_in_meters_ = 0;
   encounter_id_ = GOOGLE_ULONGLONG(0);
+  fort_id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fort_image_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 NearbyPokemon::~NearbyPokemon() {
@@ -147,6 +155,8 @@ NearbyPokemon::~NearbyPokemon() {
 }
 
 void NearbyPokemon::SharedDtor() {
+  fort_id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fort_image_url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -195,6 +205,8 @@ void NearbyPokemon::Clear() {
 } while (0)
 
   ZR_(pokemon_id_, encounter_id_);
+  fort_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  fort_image_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -252,6 +264,40 @@ bool NearbyPokemon::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(34)) goto parse_fort_id;
+        break;
+      }
+
+      // optional string fort_id = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_fort_id:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_fort_id()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->fort_id().data(), this->fort_id().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "POGOProtos.Map.Pokemon.NearbyPokemon.fort_id"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_fort_image_url;
+        break;
+      }
+
+      // optional string fort_image_url = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_fort_image_url:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_fort_image_url()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->fort_image_url().data(), this->fort_image_url().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url"));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -296,6 +342,26 @@ void NearbyPokemon::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteFixed64(3, this->encounter_id(), output);
   }
 
+  // optional string fort_id = 4;
+  if (this->fort_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fort_id().data(), this->fort_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "POGOProtos.Map.Pokemon.NearbyPokemon.fort_id");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->fort_id(), output);
+  }
+
+  // optional string fort_image_url = 5;
+  if (this->fort_image_url().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fort_image_url().data(), this->fort_image_url().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->fort_image_url(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:POGOProtos.Map.Pokemon.NearbyPokemon)
 }
 
@@ -316,6 +382,28 @@ void NearbyPokemon::SerializeWithCachedSizes(
   // optional fixed64 encounter_id = 3;
   if (this->encounter_id() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFixed64ToArray(3, this->encounter_id(), target);
+  }
+
+  // optional string fort_id = 4;
+  if (this->fort_id().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fort_id().data(), this->fort_id().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "POGOProtos.Map.Pokemon.NearbyPokemon.fort_id");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->fort_id(), target);
+  }
+
+  // optional string fort_image_url = 5;
+  if (this->fort_image_url().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->fort_image_url().data(), this->fort_image_url().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->fort_image_url(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:POGOProtos.Map.Pokemon.NearbyPokemon)
@@ -340,6 +428,20 @@ int NearbyPokemon::ByteSize() const {
   // optional fixed64 encounter_id = 3;
   if (this->encounter_id() != 0) {
     total_size += 1 + 8;
+  }
+
+  // optional string fort_id = 4;
+  if (this->fort_id().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->fort_id());
+  }
+
+  // optional string fort_image_url = 5;
+  if (this->fort_image_url().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->fort_image_url());
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -379,6 +481,14 @@ void NearbyPokemon::MergeFrom(const NearbyPokemon& from) {
   if (from.encounter_id() != 0) {
     set_encounter_id(from.encounter_id());
   }
+  if (from.fort_id().size() > 0) {
+
+    fort_id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fort_id_);
+  }
+  if (from.fort_image_url().size() > 0) {
+
+    fort_image_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.fort_image_url_);
+  }
 }
 
 void NearbyPokemon::CopyFrom(const ::google::protobuf::Message& from) {
@@ -408,6 +518,8 @@ void NearbyPokemon::InternalSwap(NearbyPokemon* other) {
   std::swap(pokemon_id_, other->pokemon_id_);
   std::swap(distance_in_meters_, other->distance_in_meters_);
   std::swap(encounter_id_, other->encounter_id_);
+  fort_id_.Swap(&other->fort_id_);
+  fort_image_url_.Swap(&other->fort_image_url_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -463,6 +575,94 @@ void NearbyPokemon::clear_encounter_id() {
   
   encounter_id_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Map.Pokemon.NearbyPokemon.encounter_id)
+}
+
+// optional string fort_id = 4;
+void NearbyPokemon::clear_fort_id() {
+  fort_id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& NearbyPokemon::fort_id() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Map.Pokemon.NearbyPokemon.fort_id)
+  return fort_id_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void NearbyPokemon::set_fort_id(const ::std::string& value) {
+  
+  fort_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Map.Pokemon.NearbyPokemon.fort_id)
+}
+ void NearbyPokemon::set_fort_id(const char* value) {
+  
+  fort_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:POGOProtos.Map.Pokemon.NearbyPokemon.fort_id)
+}
+ void NearbyPokemon::set_fort_id(const char* value, size_t size) {
+  
+  fort_id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Map.Pokemon.NearbyPokemon.fort_id)
+}
+ ::std::string* NearbyPokemon::mutable_fort_id() {
+  
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Map.Pokemon.NearbyPokemon.fort_id)
+  return fort_id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* NearbyPokemon::release_fort_id() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Map.Pokemon.NearbyPokemon.fort_id)
+  
+  return fort_id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void NearbyPokemon::set_allocated_fort_id(::std::string* fort_id) {
+  if (fort_id != NULL) {
+    
+  } else {
+    
+  }
+  fort_id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fort_id);
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Map.Pokemon.NearbyPokemon.fort_id)
+}
+
+// optional string fort_image_url = 5;
+void NearbyPokemon::clear_fort_image_url() {
+  fort_image_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ const ::std::string& NearbyPokemon::fort_image_url() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url)
+  return fort_image_url_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void NearbyPokemon::set_fort_image_url(const ::std::string& value) {
+  
+  fort_image_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url)
+}
+ void NearbyPokemon::set_fort_image_url(const char* value) {
+  
+  fort_image_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url)
+}
+ void NearbyPokemon::set_fort_image_url(const char* value, size_t size) {
+  
+  fort_image_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url)
+}
+ ::std::string* NearbyPokemon::mutable_fort_image_url() {
+  
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url)
+  return fort_image_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* NearbyPokemon::release_fort_image_url() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url)
+  
+  return fort_image_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void NearbyPokemon::set_allocated_fort_image_url(::std::string* fort_image_url) {
+  if (fort_image_url != NULL) {
+    
+  } else {
+    
+  }
+  fort_image_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), fort_image_url);
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Map.Pokemon.NearbyPokemon.fort_image_url)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

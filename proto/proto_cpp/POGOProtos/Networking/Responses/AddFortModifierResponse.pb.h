@@ -26,7 +26,9 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "POGOProtos/Networking/Responses/FortDetailsResponse.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace POGOProtos {
@@ -40,6 +42,30 @@ void protobuf_ShutdownFile_POGOProtos_2fNetworking_2fResponses_2fAddFortModifier
 
 class AddFortModifierResponse;
 
+enum AddFortModifierResponse_Result {
+  AddFortModifierResponse_Result_NO_RESULT_SET = 0,
+  AddFortModifierResponse_Result_SUCCESS = 1,
+  AddFortModifierResponse_Result_FORT_ALREADY_HAS_MODIFIER = 2,
+  AddFortModifierResponse_Result_TOO_FAR_AWAY = 3,
+  AddFortModifierResponse_Result_NO_ITEM_IN_INVENTORY = 4,
+  AddFortModifierResponse_Result_AddFortModifierResponse_Result_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  AddFortModifierResponse_Result_AddFortModifierResponse_Result_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool AddFortModifierResponse_Result_IsValid(int value);
+const AddFortModifierResponse_Result AddFortModifierResponse_Result_Result_MIN = AddFortModifierResponse_Result_NO_RESULT_SET;
+const AddFortModifierResponse_Result AddFortModifierResponse_Result_Result_MAX = AddFortModifierResponse_Result_NO_ITEM_IN_INVENTORY;
+const int AddFortModifierResponse_Result_Result_ARRAYSIZE = AddFortModifierResponse_Result_Result_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* AddFortModifierResponse_Result_descriptor();
+inline const ::std::string& AddFortModifierResponse_Result_Name(AddFortModifierResponse_Result value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    AddFortModifierResponse_Result_descriptor(), value);
+}
+inline bool AddFortModifierResponse_Result_Parse(
+    const ::std::string& name, AddFortModifierResponse_Result* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<AddFortModifierResponse_Result>(
+    AddFortModifierResponse_Result_descriptor(), name, value);
+}
 // ===================================================================
 
 class AddFortModifierResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:POGOProtos.Networking.Responses.AddFortModifierResponse) */ {
@@ -100,13 +126,62 @@ class AddFortModifierResponse : public ::google::protobuf::Message /* @@protoc_i
 
   // nested types ----------------------------------------------------
 
+  typedef AddFortModifierResponse_Result Result;
+  static const Result NO_RESULT_SET =
+    AddFortModifierResponse_Result_NO_RESULT_SET;
+  static const Result SUCCESS =
+    AddFortModifierResponse_Result_SUCCESS;
+  static const Result FORT_ALREADY_HAS_MODIFIER =
+    AddFortModifierResponse_Result_FORT_ALREADY_HAS_MODIFIER;
+  static const Result TOO_FAR_AWAY =
+    AddFortModifierResponse_Result_TOO_FAR_AWAY;
+  static const Result NO_ITEM_IN_INVENTORY =
+    AddFortModifierResponse_Result_NO_ITEM_IN_INVENTORY;
+  static inline bool Result_IsValid(int value) {
+    return AddFortModifierResponse_Result_IsValid(value);
+  }
+  static const Result Result_MIN =
+    AddFortModifierResponse_Result_Result_MIN;
+  static const Result Result_MAX =
+    AddFortModifierResponse_Result_Result_MAX;
+  static const int Result_ARRAYSIZE =
+    AddFortModifierResponse_Result_Result_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Result_descriptor() {
+    return AddFortModifierResponse_Result_descriptor();
+  }
+  static inline const ::std::string& Result_Name(Result value) {
+    return AddFortModifierResponse_Result_Name(value);
+  }
+  static inline bool Result_Parse(const ::std::string& name,
+      Result* value) {
+    return AddFortModifierResponse_Result_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
+
+  // optional .POGOProtos.Networking.Responses.AddFortModifierResponse.Result result = 1;
+  void clear_result();
+  static const int kResultFieldNumber = 1;
+  ::POGOProtos::Networking::Responses::AddFortModifierResponse_Result result() const;
+  void set_result(::POGOProtos::Networking::Responses::AddFortModifierResponse_Result value);
+
+  // optional .POGOProtos.Networking.Responses.FortDetailsResponse fort_details = 2;
+  bool has_fort_details() const;
+  void clear_fort_details();
+  static const int kFortDetailsFieldNumber = 2;
+  const ::POGOProtos::Networking::Responses::FortDetailsResponse& fort_details() const;
+  ::POGOProtos::Networking::Responses::FortDetailsResponse* mutable_fort_details();
+  ::POGOProtos::Networking::Responses::FortDetailsResponse* release_fort_details();
+  void set_allocated_fort_details(::POGOProtos::Networking::Responses::FortDetailsResponse* fort_details);
 
   // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Responses.AddFortModifierResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
+  ::POGOProtos::Networking::Responses::FortDetailsResponse* fort_details_;
+  int result_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_POGOProtos_2fNetworking_2fResponses_2fAddFortModifierResponse_2eproto();
   friend void protobuf_AssignDesc_POGOProtos_2fNetworking_2fResponses_2fAddFortModifierResponse_2eproto();
@@ -123,6 +198,58 @@ class AddFortModifierResponse : public ::google::protobuf::Message /* @@protoc_i
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // AddFortModifierResponse
 
+// optional .POGOProtos.Networking.Responses.AddFortModifierResponse.Result result = 1;
+inline void AddFortModifierResponse::clear_result() {
+  result_ = 0;
+}
+inline ::POGOProtos::Networking::Responses::AddFortModifierResponse_Result AddFortModifierResponse::result() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Responses.AddFortModifierResponse.result)
+  return static_cast< ::POGOProtos::Networking::Responses::AddFortModifierResponse_Result >(result_);
+}
+inline void AddFortModifierResponse::set_result(::POGOProtos::Networking::Responses::AddFortModifierResponse_Result value) {
+  
+  result_ = value;
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Responses.AddFortModifierResponse.result)
+}
+
+// optional .POGOProtos.Networking.Responses.FortDetailsResponse fort_details = 2;
+inline bool AddFortModifierResponse::has_fort_details() const {
+  return !_is_default_instance_ && fort_details_ != NULL;
+}
+inline void AddFortModifierResponse::clear_fort_details() {
+  if (GetArenaNoVirtual() == NULL && fort_details_ != NULL) delete fort_details_;
+  fort_details_ = NULL;
+}
+inline const ::POGOProtos::Networking::Responses::FortDetailsResponse& AddFortModifierResponse::fort_details() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Responses.AddFortModifierResponse.fort_details)
+  return fort_details_ != NULL ? *fort_details_ : *default_instance_->fort_details_;
+}
+inline ::POGOProtos::Networking::Responses::FortDetailsResponse* AddFortModifierResponse::mutable_fort_details() {
+  
+  if (fort_details_ == NULL) {
+    fort_details_ = new ::POGOProtos::Networking::Responses::FortDetailsResponse;
+  }
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Responses.AddFortModifierResponse.fort_details)
+  return fort_details_;
+}
+inline ::POGOProtos::Networking::Responses::FortDetailsResponse* AddFortModifierResponse::release_fort_details() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Responses.AddFortModifierResponse.fort_details)
+  
+  ::POGOProtos::Networking::Responses::FortDetailsResponse* temp = fort_details_;
+  fort_details_ = NULL;
+  return temp;
+}
+inline void AddFortModifierResponse::set_allocated_fort_details(::POGOProtos::Networking::Responses::FortDetailsResponse* fort_details) {
+  delete fort_details_;
+  fort_details_ = fort_details;
+  if (fort_details) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Responses.AddFortModifierResponse.fort_details)
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
@@ -130,6 +257,20 @@ class AddFortModifierResponse : public ::google::protobuf::Message /* @@protoc_i
 }  // namespace Responses
 }  // namespace Networking
 }  // namespace POGOProtos
+
+#ifndef SWIG
+namespace google {
+namespace protobuf {
+
+template <> struct is_proto_enum< ::POGOProtos::Networking::Responses::AddFortModifierResponse_Result> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::POGOProtos::Networking::Responses::AddFortModifierResponse_Result>() {
+  return ::POGOProtos::Networking::Responses::AddFortModifierResponse_Result_descriptor();
+}
+
+}  // namespace protobuf
+}  // namespace google
+#endif  // SWIG
 
 // @@protoc_insertion_point(global_scope)
 

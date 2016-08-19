@@ -37,7 +37,7 @@ void protobuf_AssignDesc_POGOProtos_2fData_2fPlayerData_2eproto() {
       "POGOProtos/Data/PlayerData.proto");
   GOOGLE_CHECK(file != NULL);
   PlayerData_descriptor_ = file->message_type(0);
-  static const int PlayerData_offsets_[11] = {
+  static const int PlayerData_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerData, creation_timestamp_ms_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerData, username_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerData, team_),
@@ -49,6 +49,7 @@ void protobuf_AssignDesc_POGOProtos_2fData_2fPlayerData_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerData, equipped_badge_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerData, contact_settings_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerData, currencies_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerData, remaining_codename_claims_),
   };
   PlayerData_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -108,7 +109,7 @@ void protobuf_AddDesc_POGOProtos_2fData_2fPlayerData_2eproto() {
     "uippedBadge.proto\032,POGOProtos/Data/Playe"
     "r/ContactSettings.proto\032%POGOProtos/Data"
     "/Player/Currency.proto\032 POGOProtos/Enums"
-    "/TeamColor.proto\"\203\004\n\nPlayerData\022\035\n\025creat"
+    "/TeamColor.proto\"\246\004\n\nPlayerData\022\035\n\025creat"
     "ion_timestamp_ms\030\001 \001(\003\022\020\n\010username\030\002 \001(\t"
     "\022)\n\004team\030\005 \001(\0162\033.POGOProtos.Enums.TeamCo"
     "lor\022;\n\016tutorial_state\030\007 \003(\0162\037.POGOProtos"
@@ -121,7 +122,8 @@ void protobuf_AddDesc_POGOProtos_2fData_2fPlayerData_2eproto() {
     "EquippedBadge\022A\n\020contact_settings\030\r \001(\0132"
     "\'.POGOProtos.Data.Player.ContactSettings"
     "\0224\n\ncurrencies\030\016 \003(\0132 .POGOProtos.Data.P"
-    "layer.Currencyb\006proto3", 862);
+    "layer.Currency\022!\n\031remaining_codename_cla"
+    "ims\030\017 \001(\005b\006proto3", 897);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "POGOProtos/Data/PlayerData.proto", &protobuf_RegisterTypes);
   PlayerData::default_instance_ = new PlayerData();
@@ -150,6 +152,7 @@ const int PlayerData::kDailyBonusFieldNumber;
 const int PlayerData::kEquippedBadgeFieldNumber;
 const int PlayerData::kContactSettingsFieldNumber;
 const int PlayerData::kCurrenciesFieldNumber;
+const int PlayerData::kRemainingCodenameClaimsFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PlayerData::PlayerData()
@@ -187,6 +190,7 @@ void PlayerData::SharedCtor() {
   daily_bonus_ = NULL;
   equipped_badge_ = NULL;
   contact_settings_ = NULL;
+  remaining_codename_claims_ = 0;
 }
 
 PlayerData::~PlayerData() {
@@ -259,6 +263,7 @@ void PlayerData::Clear() {
   equipped_badge_ = NULL;
   if (GetArenaNoVirtual() == NULL && contact_settings_ != NULL) delete contact_settings_;
   contact_settings_ = NULL;
+  remaining_codename_claims_ = 0;
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -447,6 +452,21 @@ bool PlayerData::MergePartialFromCodedStream(
         }
         if (input->ExpectTag(114)) goto parse_loop_currencies;
         input->UnsafeDecrementRecursionDepth();
+        if (input->ExpectTag(120)) goto parse_remaining_codename_claims;
+        break;
+      }
+
+      // optional int32 remaining_codename_claims = 15;
+      case 15: {
+        if (tag == 120) {
+         parse_remaining_codename_claims:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &remaining_codename_claims_)));
+
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -549,6 +569,11 @@ void PlayerData::SerializeWithCachedSizes(
       14, this->currencies(i), output);
   }
 
+  // optional int32 remaining_codename_claims = 15;
+  if (this->remaining_codename_claims() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->remaining_codename_claims(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:POGOProtos.Data.PlayerData)
 }
 
@@ -635,6 +660,11 @@ void PlayerData::SerializeWithCachedSizes(
         14, this->currencies(i), false, target);
   }
 
+  // optional int32 remaining_codename_claims = 15;
+  if (this->remaining_codename_claims() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->remaining_codename_claims(), target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:POGOProtos.Data.PlayerData)
   return target;
 }
@@ -703,6 +733,13 @@ int PlayerData::ByteSize() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->contact_settings_);
+  }
+
+  // optional int32 remaining_codename_claims = 15;
+  if (this->remaining_codename_claims() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->remaining_codename_claims());
   }
 
   // repeated .POGOProtos.Enums.TutorialState tutorial_state = 7 [packed = true];
@@ -788,6 +825,9 @@ void PlayerData::MergeFrom(const PlayerData& from) {
   if (from.has_contact_settings()) {
     mutable_contact_settings()->::POGOProtos::Data::Player::ContactSettings::MergeFrom(from.contact_settings());
   }
+  if (from.remaining_codename_claims() != 0) {
+    set_remaining_codename_claims(from.remaining_codename_claims());
+  }
 }
 
 void PlayerData::CopyFrom(const ::google::protobuf::Message& from) {
@@ -825,6 +865,7 @@ void PlayerData::InternalSwap(PlayerData* other) {
   std::swap(equipped_badge_, other->equipped_badge_);
   std::swap(contact_settings_, other->contact_settings_);
   currencies_.UnsafeArenaSwap(&other->currencies_);
+  std::swap(remaining_codename_claims_, other->remaining_codename_claims_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1150,6 +1191,20 @@ const ::google::protobuf::RepeatedPtrField< ::POGOProtos::Data::Player::Currency
 PlayerData::currencies() const {
   // @@protoc_insertion_point(field_list:POGOProtos.Data.PlayerData.currencies)
   return currencies_;
+}
+
+// optional int32 remaining_codename_claims = 15;
+void PlayerData::clear_remaining_codename_claims() {
+  remaining_codename_claims_ = 0;
+}
+ ::google::protobuf::int32 PlayerData::remaining_codename_claims() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Data.PlayerData.remaining_codename_claims)
+  return remaining_codename_claims_;
+}
+ void PlayerData::set_remaining_codename_claims(::google::protobuf::int32 value) {
+  
+  remaining_codename_claims_ = value;
+  // @@protoc_insertion_point(field_set:POGOProtos.Data.PlayerData.remaining_codename_claims)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

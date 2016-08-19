@@ -50,11 +50,11 @@ void protobuf_AssignDesc_POGOProtos_2fMap_2fFort_2fFortData_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, guard_pokemon_cp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, gym_points_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, is_in_battle_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, active_fort_modifier_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, lure_info_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, cooldown_complete_timestamp_ms_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, sponsor_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, rendering_type_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, active_fort_modifier_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FortData, lure_info_),
   };
   FortData_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -100,6 +100,7 @@ void protobuf_AddDesc_POGOProtos_2fMap_2fFort_2fFortData_2eproto() {
 
   ::POGOProtos::Enums::protobuf_AddDesc_POGOProtos_2fEnums_2fPokemonId_2eproto();
   ::POGOProtos::Enums::protobuf_AddDesc_POGOProtos_2fEnums_2fTeamColor_2eproto();
+  ::POGOProtos::Inventory::Item::protobuf_AddDesc_POGOProtos_2fInventory_2fItem_2fItemId_2eproto();
   ::POGOProtos::Map::Fort::protobuf_AddDesc_POGOProtos_2fMap_2fFort_2fFortType_2eproto();
   ::POGOProtos::Map::Fort::protobuf_AddDesc_POGOProtos_2fMap_2fFort_2fFortSponsor_2eproto();
   ::POGOProtos::Map::Fort::protobuf_AddDesc_POGOProtos_2fMap_2fFort_2fFortRenderingType_2eproto();
@@ -108,11 +109,12 @@ void protobuf_AddDesc_POGOProtos_2fMap_2fFort_2fFortData_2eproto() {
     "\n\"POGOProtos/Map/Fort/FortData.proto\022\023PO"
     "GOProtos.Map.Fort\032 POGOProtos/Enums/Poke"
     "monId.proto\032 POGOProtos/Enums/TeamColor."
+    "proto\032&POGOProtos/Inventory/Item/ItemId."
     "proto\032\"POGOProtos/Map/Fort/FortType.prot"
     "o\032%POGOProtos/Map/Fort/FortSponsor.proto"
     "\032+POGOProtos/Map/Fort/FortRenderingType."
     "proto\032&POGOProtos/Map/Fort/FortLureInfo."
-    "proto\"\273\004\n\010FortData\022\n\n\002id\030\001 \001(\t\022\"\n\032last_m"
+    "proto\"\336\004\n\010FortData\022\n\n\002id\030\001 \001(\t\022\"\n\032last_m"
     "odified_timestamp_ms\030\002 \001(\003\022\020\n\010latitude\030\003"
     " \001(\001\022\021\n\tlongitude\030\004 \001(\001\022\017\n\007enabled\030\010 \001(\010"
     "\022+\n\004type\030\t \001(\0162\035.POGOProtos.Map.Fort.For"
@@ -120,13 +122,14 @@ void protobuf_AddDesc_POGOProtos_2fMap_2fFort_2fFortData_2eproto() {
     "s.Enums.TeamColor\0225\n\020guard_pokemon_id\030\006 "
     "\001(\0162\033.POGOProtos.Enums.PokemonId\022\030\n\020guar"
     "d_pokemon_cp\030\007 \001(\005\022\022\n\ngym_points\030\n \001(\003\022\024"
-    "\n\014is_in_battle\030\013 \001(\010\022&\n\036cooldown_complet"
-    "e_timestamp_ms\030\016 \001(\003\0221\n\007sponsor\030\017 \001(\0162 ."
-    "POGOProtos.Map.Fort.FortSponsor\022>\n\016rende"
-    "ring_type\030\020 \001(\0162&.POGOProtos.Map.Fort.Fo"
-    "rtRenderingType\022\034\n\024active_fort_modifier\030"
-    "\014 \001(\014\0224\n\tlure_info\030\r \001(\0132!.POGOProtos.Ma"
-    "p.Fort.FortLureInfob\006proto3", 867);
+    "\n\014is_in_battle\030\013 \001(\010\022\?\n\024active_fort_modi"
+    "fier\030\014 \003(\0162!.POGOProtos.Inventory.Item.I"
+    "temId\0224\n\tlure_info\030\r \001(\0132!.POGOProtos.Ma"
+    "p.Fort.FortLureInfo\022&\n\036cooldown_complete"
+    "_timestamp_ms\030\016 \001(\003\0221\n\007sponsor\030\017 \001(\0162 .P"
+    "OGOProtos.Map.Fort.FortSponsor\022>\n\016render"
+    "ing_type\030\020 \001(\0162&.POGOProtos.Map.Fort.For"
+    "tRenderingTypeb\006proto3", 942);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "POGOProtos/Map/Fort/FortData.proto", &protobuf_RegisterTypes);
   FortData::default_instance_ = new FortData();
@@ -155,11 +158,11 @@ const int FortData::kGuardPokemonIdFieldNumber;
 const int FortData::kGuardPokemonCpFieldNumber;
 const int FortData::kGymPointsFieldNumber;
 const int FortData::kIsInBattleFieldNumber;
+const int FortData::kActiveFortModifierFieldNumber;
+const int FortData::kLureInfoFieldNumber;
 const int FortData::kCooldownCompleteTimestampMsFieldNumber;
 const int FortData::kSponsorFieldNumber;
 const int FortData::kRenderingTypeFieldNumber;
-const int FortData::kActiveFortModifierFieldNumber;
-const int FortData::kLureInfoFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 FortData::FortData()
@@ -196,11 +199,10 @@ void FortData::SharedCtor() {
   guard_pokemon_cp_ = 0;
   gym_points_ = GOOGLE_LONGLONG(0);
   is_in_battle_ = false;
+  lure_info_ = NULL;
   cooldown_complete_timestamp_ms_ = GOOGLE_LONGLONG(0);
   sponsor_ = 0;
   rendering_type_ = 0;
-  active_fort_modifier_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  lure_info_ = NULL;
 }
 
 FortData::~FortData() {
@@ -210,7 +212,6 @@ FortData::~FortData() {
 
 void FortData::SharedDtor() {
   id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  active_fort_modifier_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
     delete lure_info_;
   }
@@ -261,15 +262,16 @@ void FortData::Clear() {
 
   ZR_(last_modified_timestamp_ms_, enabled_);
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ZR_(is_in_battle_, cooldown_complete_timestamp_ms_);
-  rendering_type_ = 0;
-  active_fort_modifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ZR_(is_in_battle_, gym_points_);
+  ZR_(guard_pokemon_cp_, sponsor_);
+  ZR_(cooldown_complete_timestamp_ms_, rendering_type_);
   if (GetArenaNoVirtual() == NULL && lure_info_ != NULL) delete lure_info_;
   lure_info_ = NULL;
 
 #undef ZR_HELPER_
 #undef ZR_
 
+  active_fort_modifier_.Clear();
 }
 
 bool FortData::MergePartialFromCodedStream(
@@ -451,12 +453,27 @@ bool FortData::MergePartialFromCodedStream(
         break;
       }
 
-      // optional bytes active_fort_modifier = 12;
+      // repeated .POGOProtos.Inventory.Item.ItemId active_fort_modifier = 12;
       case 12: {
         if (tag == 98) {
          parse_active_fort_modifier:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_active_fort_modifier()));
+          ::google::protobuf::uint32 length;
+          DO_(input->ReadVarint32(&length));
+          ::google::protobuf::io::CodedInputStream::Limit limit = input->PushLimit(length);
+          while (input->BytesUntilLimit() > 0) {
+            int value;
+            DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+            add_active_fort_modifier(static_cast< ::POGOProtos::Inventory::Item::ItemId >(value));
+          }
+          input->PopLimit(limit);
+        } else if (tag == 96) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          add_active_fort_modifier(static_cast< ::POGOProtos::Inventory::Item::ItemId >(value));
         } else {
           goto handle_unusual;
         }
@@ -611,10 +628,17 @@ void FortData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->is_in_battle(), output);
   }
 
-  // optional bytes active_fort_modifier = 12;
-  if (this->active_fort_modifier().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      12, this->active_fort_modifier(), output);
+  // repeated .POGOProtos.Inventory.Item.ItemId active_fort_modifier = 12;
+  if (this->active_fort_modifier_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(
+      12,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      output);
+    output->WriteVarint32(_active_fort_modifier_cached_byte_size_);
+  }
+  for (int i = 0; i < this->active_fort_modifier_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnumNoTag(
+      this->active_fort_modifier(i), output);
   }
 
   // optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
@@ -710,11 +734,17 @@ void FortData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->is_in_battle(), target);
   }
 
-  // optional bytes active_fort_modifier = 12;
-  if (this->active_fort_modifier().size() > 0) {
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        12, this->active_fort_modifier(), target);
+  // repeated .POGOProtos.Inventory.Item.ItemId active_fort_modifier = 12;
+  if (this->active_fort_modifier_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      12,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(    _active_fort_modifier_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->active_fort_modifier_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumNoTagToArray(
+      this->active_fort_modifier(i), target);
   }
 
   // optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
@@ -815,6 +845,13 @@ int FortData::ByteSize() const {
     total_size += 1 + 1;
   }
 
+  // optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
+  if (this->has_lure_info()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->lure_info_);
+  }
+
   // optional int64 cooldown_complete_timestamp_ms = 14;
   if (this->cooldown_complete_timestamp_ms() != 0) {
     total_size += 1 +
@@ -834,18 +871,21 @@ int FortData::ByteSize() const {
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->rendering_type());
   }
 
-  // optional bytes active_fort_modifier = 12;
-  if (this->active_fort_modifier().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::BytesSize(
-        this->active_fort_modifier());
-  }
-
-  // optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
-  if (this->has_lure_info()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        *this->lure_info_);
+  // repeated .POGOProtos.Inventory.Item.ItemId active_fort_modifier = 12;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->active_fort_modifier_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::EnumSize(
+        this->active_fort_modifier(i));
+    }
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _active_fort_modifier_cached_byte_size_ = data_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -876,6 +916,7 @@ void FortData::MergeFrom(const FortData& from) {
   if (GOOGLE_PREDICT_FALSE(&from == this)) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
+  active_fort_modifier_.MergeFrom(from.active_fort_modifier_);
   if (from.id().size() > 0) {
 
     id_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.id_);
@@ -910,6 +951,9 @@ void FortData::MergeFrom(const FortData& from) {
   if (from.is_in_battle() != 0) {
     set_is_in_battle(from.is_in_battle());
   }
+  if (from.has_lure_info()) {
+    mutable_lure_info()->::POGOProtos::Map::Fort::FortLureInfo::MergeFrom(from.lure_info());
+  }
   if (from.cooldown_complete_timestamp_ms() != 0) {
     set_cooldown_complete_timestamp_ms(from.cooldown_complete_timestamp_ms());
   }
@@ -918,13 +962,6 @@ void FortData::MergeFrom(const FortData& from) {
   }
   if (from.rendering_type() != 0) {
     set_rendering_type(from.rendering_type());
-  }
-  if (from.active_fort_modifier().size() > 0) {
-
-    active_fort_modifier_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.active_fort_modifier_);
-  }
-  if (from.has_lure_info()) {
-    mutable_lure_info()->::POGOProtos::Map::Fort::FortLureInfo::MergeFrom(from.lure_info());
   }
 }
 
@@ -963,11 +1000,11 @@ void FortData::InternalSwap(FortData* other) {
   std::swap(guard_pokemon_cp_, other->guard_pokemon_cp_);
   std::swap(gym_points_, other->gym_points_);
   std::swap(is_in_battle_, other->is_in_battle_);
+  active_fort_modifier_.UnsafeArenaSwap(&other->active_fort_modifier_);
+  std::swap(lure_info_, other->lure_info_);
   std::swap(cooldown_complete_timestamp_ms_, other->cooldown_complete_timestamp_ms_);
   std::swap(sponsor_, other->sponsor_);
   std::swap(rendering_type_, other->rendering_type_);
-  active_fort_modifier_.Swap(&other->active_fort_modifier_);
-  std::swap(lure_info_, other->lure_info_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1167,6 +1204,74 @@ void FortData::clear_is_in_battle() {
   // @@protoc_insertion_point(field_set:POGOProtos.Map.Fort.FortData.is_in_battle)
 }
 
+// repeated .POGOProtos.Inventory.Item.ItemId active_fort_modifier = 12;
+int FortData::active_fort_modifier_size() const {
+  return active_fort_modifier_.size();
+}
+void FortData::clear_active_fort_modifier() {
+  active_fort_modifier_.Clear();
+}
+ ::POGOProtos::Inventory::Item::ItemId FortData::active_fort_modifier(int index) const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+  return static_cast< ::POGOProtos::Inventory::Item::ItemId >(active_fort_modifier_.Get(index));
+}
+ void FortData::set_active_fort_modifier(int index, ::POGOProtos::Inventory::Item::ItemId value) {
+  active_fort_modifier_.Set(index, value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+}
+ void FortData::add_active_fort_modifier(::POGOProtos::Inventory::Item::ItemId value) {
+  active_fort_modifier_.Add(value);
+  // @@protoc_insertion_point(field_add:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+}
+ const ::google::protobuf::RepeatedField<int>&
+FortData::active_fort_modifier() const {
+  // @@protoc_insertion_point(field_list:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+  return active_fort_modifier_;
+}
+ ::google::protobuf::RepeatedField<int>*
+FortData::mutable_active_fort_modifier() {
+  // @@protoc_insertion_point(field_mutable_list:POGOProtos.Map.Fort.FortData.active_fort_modifier)
+  return &active_fort_modifier_;
+}
+
+// optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
+bool FortData::has_lure_info() const {
+  return !_is_default_instance_ && lure_info_ != NULL;
+}
+void FortData::clear_lure_info() {
+  if (GetArenaNoVirtual() == NULL && lure_info_ != NULL) delete lure_info_;
+  lure_info_ = NULL;
+}
+const ::POGOProtos::Map::Fort::FortLureInfo& FortData::lure_info() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Map.Fort.FortData.lure_info)
+  return lure_info_ != NULL ? *lure_info_ : *default_instance_->lure_info_;
+}
+::POGOProtos::Map::Fort::FortLureInfo* FortData::mutable_lure_info() {
+  
+  if (lure_info_ == NULL) {
+    lure_info_ = new ::POGOProtos::Map::Fort::FortLureInfo;
+  }
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Map.Fort.FortData.lure_info)
+  return lure_info_;
+}
+::POGOProtos::Map::Fort::FortLureInfo* FortData::release_lure_info() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Map.Fort.FortData.lure_info)
+  
+  ::POGOProtos::Map::Fort::FortLureInfo* temp = lure_info_;
+  lure_info_ = NULL;
+  return temp;
+}
+void FortData::set_allocated_lure_info(::POGOProtos::Map::Fort::FortLureInfo* lure_info) {
+  delete lure_info_;
+  lure_info_ = lure_info;
+  if (lure_info) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Map.Fort.FortData.lure_info)
+}
+
 // optional int64 cooldown_complete_timestamp_ms = 14;
 void FortData::clear_cooldown_complete_timestamp_ms() {
   cooldown_complete_timestamp_ms_ = GOOGLE_LONGLONG(0);
@@ -1207,88 +1312,6 @@ void FortData::clear_rendering_type() {
   
   rendering_type_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Map.Fort.FortData.rendering_type)
-}
-
-// optional bytes active_fort_modifier = 12;
-void FortData::clear_active_fort_modifier() {
-  active_fort_modifier_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- const ::std::string& FortData::active_fort_modifier() const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-  return active_fort_modifier_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void FortData::set_active_fort_modifier(const ::std::string& value) {
-  
-  active_fort_modifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-}
- void FortData::set_active_fort_modifier(const char* value) {
-  
-  active_fort_modifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-}
- void FortData::set_active_fort_modifier(const void* value, size_t size) {
-  
-  active_fort_modifier_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-}
- ::std::string* FortData::mutable_active_fort_modifier() {
-  
-  // @@protoc_insertion_point(field_mutable:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-  return active_fort_modifier_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- ::std::string* FortData::release_active_fort_modifier() {
-  // @@protoc_insertion_point(field_release:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-  
-  return active_fort_modifier_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
- void FortData::set_allocated_active_fort_modifier(::std::string* active_fort_modifier) {
-  if (active_fort_modifier != NULL) {
-    
-  } else {
-    
-  }
-  active_fort_modifier_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), active_fort_modifier);
-  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Map.Fort.FortData.active_fort_modifier)
-}
-
-// optional .POGOProtos.Map.Fort.FortLureInfo lure_info = 13;
-bool FortData::has_lure_info() const {
-  return !_is_default_instance_ && lure_info_ != NULL;
-}
-void FortData::clear_lure_info() {
-  if (GetArenaNoVirtual() == NULL && lure_info_ != NULL) delete lure_info_;
-  lure_info_ = NULL;
-}
-const ::POGOProtos::Map::Fort::FortLureInfo& FortData::lure_info() const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Map.Fort.FortData.lure_info)
-  return lure_info_ != NULL ? *lure_info_ : *default_instance_->lure_info_;
-}
-::POGOProtos::Map::Fort::FortLureInfo* FortData::mutable_lure_info() {
-  
-  if (lure_info_ == NULL) {
-    lure_info_ = new ::POGOProtos::Map::Fort::FortLureInfo;
-  }
-  // @@protoc_insertion_point(field_mutable:POGOProtos.Map.Fort.FortData.lure_info)
-  return lure_info_;
-}
-::POGOProtos::Map::Fort::FortLureInfo* FortData::release_lure_info() {
-  // @@protoc_insertion_point(field_release:POGOProtos.Map.Fort.FortData.lure_info)
-  
-  ::POGOProtos::Map::Fort::FortLureInfo* temp = lure_info_;
-  lure_info_ = NULL;
-  return temp;
-}
-void FortData::set_allocated_lure_info(::POGOProtos::Map::Fort::FortLureInfo* lure_info) {
-  delete lure_info_;
-  lure_info_ = lure_info;
-  if (lure_info) {
-    
-  } else {
-    
-  }
-  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Map.Fort.FortData.lure_info)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

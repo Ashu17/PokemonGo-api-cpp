@@ -28,6 +28,7 @@
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "POGOProtos/Data/PlayerData.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace POGOProtos {
@@ -196,6 +197,15 @@ class ClaimCodenameResponse : public ::google::protobuf::Message /* @@protoc_ins
   ::POGOProtos::Networking::Responses::ClaimCodenameResponse_Status status() const;
   void set_status(::POGOProtos::Networking::Responses::ClaimCodenameResponse_Status value);
 
+  // optional .POGOProtos.Data.PlayerData updated_player = 5;
+  bool has_updated_player() const;
+  void clear_updated_player();
+  static const int kUpdatedPlayerFieldNumber = 5;
+  const ::POGOProtos::Data::PlayerData& updated_player() const;
+  ::POGOProtos::Data::PlayerData* mutable_updated_player();
+  ::POGOProtos::Data::PlayerData* release_updated_player();
+  void set_allocated_updated_player(::POGOProtos::Data::PlayerData* updated_player);
+
   // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Responses.ClaimCodenameResponse)
  private:
 
@@ -205,6 +215,7 @@ class ClaimCodenameResponse : public ::google::protobuf::Message /* @@protoc_ins
   ::google::protobuf::internal::ArenaStringPtr user_message_;
   bool is_assignable_;
   int status_;
+  ::POGOProtos::Data::PlayerData* updated_player_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_POGOProtos_2fNetworking_2fResponses_2fClaimCodenameResponse_2eproto();
   friend void protobuf_AssignDesc_POGOProtos_2fNetworking_2fResponses_2fClaimCodenameResponse_2eproto();
@@ -335,6 +346,44 @@ inline void ClaimCodenameResponse::set_status(::POGOProtos::Networking::Response
   
   status_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Networking.Responses.ClaimCodenameResponse.status)
+}
+
+// optional .POGOProtos.Data.PlayerData updated_player = 5;
+inline bool ClaimCodenameResponse::has_updated_player() const {
+  return !_is_default_instance_ && updated_player_ != NULL;
+}
+inline void ClaimCodenameResponse::clear_updated_player() {
+  if (GetArenaNoVirtual() == NULL && updated_player_ != NULL) delete updated_player_;
+  updated_player_ = NULL;
+}
+inline const ::POGOProtos::Data::PlayerData& ClaimCodenameResponse::updated_player() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Responses.ClaimCodenameResponse.updated_player)
+  return updated_player_ != NULL ? *updated_player_ : *default_instance_->updated_player_;
+}
+inline ::POGOProtos::Data::PlayerData* ClaimCodenameResponse::mutable_updated_player() {
+  
+  if (updated_player_ == NULL) {
+    updated_player_ = new ::POGOProtos::Data::PlayerData;
+  }
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Responses.ClaimCodenameResponse.updated_player)
+  return updated_player_;
+}
+inline ::POGOProtos::Data::PlayerData* ClaimCodenameResponse::release_updated_player() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Responses.ClaimCodenameResponse.updated_player)
+  
+  ::POGOProtos::Data::PlayerData* temp = updated_player_;
+  updated_player_ = NULL;
+  return temp;
+}
+inline void ClaimCodenameResponse::set_allocated_updated_player(::POGOProtos::Data::PlayerData* updated_player) {
+  delete updated_player_;
+  updated_player_ = updated_player;
+  if (updated_player) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Responses.ClaimCodenameResponse.updated_player)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

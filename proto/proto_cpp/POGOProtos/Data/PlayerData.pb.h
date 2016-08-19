@@ -201,6 +201,12 @@ class PlayerData : public ::google::protobuf::Message /* @@protoc_insertion_poin
   const ::google::protobuf::RepeatedPtrField< ::POGOProtos::Data::Player::Currency >&
       currencies() const;
 
+  // optional int32 remaining_codename_claims = 15;
+  void clear_remaining_codename_claims();
+  static const int kRemainingCodenameClaimsFieldNumber = 15;
+  ::google::protobuf::int32 remaining_codename_claims() const;
+  void set_remaining_codename_claims(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:POGOProtos.Data.PlayerData)
  private:
 
@@ -215,9 +221,10 @@ class PlayerData : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::POGOProtos::Data::Player::PlayerAvatar* avatar_;
   ::POGOProtos::Data::Player::DailyBonus* daily_bonus_;
   ::POGOProtos::Data::Player::EquippedBadge* equipped_badge_;
+  ::google::protobuf::int32 max_item_storage_;
+  ::google::protobuf::int32 remaining_codename_claims_;
   ::POGOProtos::Data::Player::ContactSettings* contact_settings_;
   ::google::protobuf::RepeatedPtrField< ::POGOProtos::Data::Player::Currency > currencies_;
-  ::google::protobuf::int32 max_item_storage_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_POGOProtos_2fData_2fPlayerData_2eproto();
   friend void protobuf_AssignDesc_POGOProtos_2fData_2fPlayerData_2eproto();
@@ -544,6 +551,20 @@ inline const ::google::protobuf::RepeatedPtrField< ::POGOProtos::Data::Player::C
 PlayerData::currencies() const {
   // @@protoc_insertion_point(field_list:POGOProtos.Data.PlayerData.currencies)
   return currencies_;
+}
+
+// optional int32 remaining_codename_claims = 15;
+inline void PlayerData::clear_remaining_codename_claims() {
+  remaining_codename_claims_ = 0;
+}
+inline ::google::protobuf::int32 PlayerData::remaining_codename_claims() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Data.PlayerData.remaining_codename_claims)
+  return remaining_codename_claims_;
+}
+inline void PlayerData::set_remaining_codename_claims(::google::protobuf::int32 value) {
+  
+  remaining_codename_claims_ = value;
+  // @@protoc_insertion_point(field_set:POGOProtos.Data.PlayerData.remaining_codename_claims)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

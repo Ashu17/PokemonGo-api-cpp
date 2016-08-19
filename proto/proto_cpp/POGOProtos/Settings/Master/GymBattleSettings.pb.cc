@@ -38,7 +38,7 @@ void protobuf_AssignDesc_POGOProtos_2fSettings_2fMaster_2fGymBattleSettings_2epr
       "POGOProtos/Settings/Master/GymBattleSettings.proto");
   GOOGLE_CHECK(file != NULL);
   GymBattleSettings_descriptor_ = file->message_type(0);
-  static const int GymBattleSettings_offsets_[14] = {
+  static const int GymBattleSettings_offsets_[15] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GymBattleSettings, energy_per_sec_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GymBattleSettings, dodge_energy_cost_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GymBattleSettings, retarget_seconds_),
@@ -53,6 +53,7 @@ void protobuf_AssignDesc_POGOProtos_2fSettings_2fMaster_2fGymBattleSettings_2epr
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GymBattleSettings, dodge_duration_ms_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GymBattleSettings, minimum_player_level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GymBattleSettings, swap_duration_ms_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GymBattleSettings, dodge_damage_reduction_percent_),
   };
   GymBattleSettings_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
@@ -99,7 +100,7 @@ void protobuf_AddDesc_POGOProtos_2fSettings_2fMaster_2fGymBattleSettings_2eproto
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n2POGOProtos/Settings/Master/GymBattleSe"
     "ttings.proto\022\032POGOProtos.Settings.Master"
-    "\"\306\003\n\021GymBattleSettings\022\026\n\016energy_per_sec"
+    "\"\356\003\n\021GymBattleSettings\022\026\n\016energy_per_sec"
     "\030\001 \001(\002\022\031\n\021dodge_energy_cost\030\002 \001(\002\022\030\n\020ret"
     "arget_seconds\030\003 \001(\002\022\035\n\025enemy_attack_inte"
     "rval\030\004 \001(\002\022\036\n\026attack_server_interval\030\005 \001"
@@ -110,7 +111,8 @@ void protobuf_AddDesc_POGOProtos_2fSettings_2fMaster_2fGymBattleSettings_2eproto
     "mum_energy\030\n \001(\005\022$\n\034energy_delta_per_hea"
     "lth_lost\030\013 \001(\002\022\031\n\021dodge_duration_ms\030\014 \001("
     "\005\022\034\n\024minimum_player_level\030\r \001(\005\022\030\n\020swap_"
-    "duration_ms\030\016 \001(\005b\006proto3", 545);
+    "duration_ms\030\016 \001(\005\022&\n\036dodge_damage_reduct"
+    "ion_percent\030\017 \001(\002b\006proto3", 585);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "POGOProtos/Settings/Master/GymBattleSettings.proto", &protobuf_RegisterTypes);
   GymBattleSettings::default_instance_ = new GymBattleSettings();
@@ -142,6 +144,7 @@ const int GymBattleSettings::kEnergyDeltaPerHealthLostFieldNumber;
 const int GymBattleSettings::kDodgeDurationMsFieldNumber;
 const int GymBattleSettings::kMinimumPlayerLevelFieldNumber;
 const int GymBattleSettings::kSwapDurationMsFieldNumber;
+const int GymBattleSettings::kDodgeDamageReductionPercentFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GymBattleSettings::GymBattleSettings()
@@ -179,6 +182,7 @@ void GymBattleSettings::SharedCtor() {
   dodge_duration_ms_ = 0;
   minimum_player_level_ = 0;
   swap_duration_ms_ = 0;
+  dodge_damage_reduction_percent_ = 0;
 }
 
 GymBattleSettings::~GymBattleSettings() {
@@ -235,7 +239,7 @@ void GymBattleSettings::Clear() {
 } while (0)
 
   ZR_(energy_per_sec_, maximum_attackers_per_battle_);
-  ZR_(same_type_attack_bonus_multiplier_, swap_duration_ms_);
+  ZR_(same_type_attack_bonus_multiplier_, dodge_damage_reduction_percent_);
 
 #undef ZR_HELPER_
 #undef ZR_
@@ -457,6 +461,21 @@ bool GymBattleSettings::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(125)) goto parse_dodge_damage_reduction_percent;
+        break;
+      }
+
+      // optional float dodge_damage_reduction_percent = 15;
+      case 15: {
+        if (tag == 125) {
+         parse_dodge_damage_reduction_percent:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &dodge_damage_reduction_percent_)));
+
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -555,6 +574,11 @@ void GymBattleSettings::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->swap_duration_ms(), output);
   }
 
+  // optional float dodge_damage_reduction_percent = 15;
+  if (this->dodge_damage_reduction_percent() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(15, this->dodge_damage_reduction_percent(), output);
+  }
+
   // @@protoc_insertion_point(serialize_end:POGOProtos.Settings.Master.GymBattleSettings)
 }
 
@@ -629,6 +653,11 @@ void GymBattleSettings::SerializeWithCachedSizes(
   // optional int32 swap_duration_ms = 14;
   if (this->swap_duration_ms() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->swap_duration_ms(), target);
+  }
+
+  // optional float dodge_damage_reduction_percent = 15;
+  if (this->dodge_damage_reduction_percent() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(15, this->dodge_damage_reduction_percent(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:POGOProtos.Settings.Master.GymBattleSettings)
@@ -719,6 +748,11 @@ int GymBattleSettings::ByteSize() const {
         this->swap_duration_ms());
   }
 
+  // optional float dodge_damage_reduction_percent = 15;
+  if (this->dodge_damage_reduction_percent() != 0) {
+    total_size += 1 + 4;
+  }
+
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = total_size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
@@ -789,6 +823,9 @@ void GymBattleSettings::MergeFrom(const GymBattleSettings& from) {
   if (from.swap_duration_ms() != 0) {
     set_swap_duration_ms(from.swap_duration_ms());
   }
+  if (from.dodge_damage_reduction_percent() != 0) {
+    set_dodge_damage_reduction_percent(from.dodge_damage_reduction_percent());
+  }
 }
 
 void GymBattleSettings::CopyFrom(const ::google::protobuf::Message& from) {
@@ -829,6 +866,7 @@ void GymBattleSettings::InternalSwap(GymBattleSettings* other) {
   std::swap(dodge_duration_ms_, other->dodge_duration_ms_);
   std::swap(minimum_player_level_, other->minimum_player_level_);
   std::swap(swap_duration_ms_, other->swap_duration_ms_);
+  std::swap(dodge_damage_reduction_percent_, other->dodge_damage_reduction_percent_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
@@ -1038,6 +1076,20 @@ void GymBattleSettings::clear_swap_duration_ms() {
   
   swap_duration_ms_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Settings.Master.GymBattleSettings.swap_duration_ms)
+}
+
+// optional float dodge_damage_reduction_percent = 15;
+void GymBattleSettings::clear_dodge_damage_reduction_percent() {
+  dodge_damage_reduction_percent_ = 0;
+}
+ float GymBattleSettings::dodge_damage_reduction_percent() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Settings.Master.GymBattleSettings.dodge_damage_reduction_percent)
+  return dodge_damage_reduction_percent_;
+}
+ void GymBattleSettings::set_dodge_damage_reduction_percent(float value) {
+  
+  dodge_damage_reduction_percent_ = value;
+  // @@protoc_insertion_point(field_set:POGOProtos.Settings.Master.GymBattleSettings.dodge_damage_reduction_percent)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS

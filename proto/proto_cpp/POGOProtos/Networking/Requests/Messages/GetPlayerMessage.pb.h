@@ -103,23 +103,11 @@ class GetPlayerMessage : public ::google::protobuf::Message /* @@protoc_insertio
 
   // accessors -------------------------------------------------------
 
-  // optional string app_version = 1;
-  void clear_app_version();
-  static const int kAppVersionFieldNumber = 1;
-  const ::std::string& app_version() const;
-  void set_app_version(const ::std::string& value);
-  void set_app_version(const char* value);
-  void set_app_version(const char* value, size_t size);
-  ::std::string* mutable_app_version();
-  ::std::string* release_app_version();
-  void set_allocated_app_version(::std::string* app_version);
-
   // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Requests.Messages.GetPlayerMessage)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
-  ::google::protobuf::internal::ArenaStringPtr app_version_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_POGOProtos_2fNetworking_2fRequests_2fMessages_2fGetPlayerMessage_2eproto();
   friend void protobuf_AssignDesc_POGOProtos_2fNetworking_2fRequests_2fMessages_2fGetPlayerMessage_2eproto();
@@ -135,50 +123,6 @@ class GetPlayerMessage : public ::google::protobuf::Message /* @@protoc_insertio
 
 #if !PROTOBUF_INLINE_NOT_IN_HEADERS
 // GetPlayerMessage
-
-// optional string app_version = 1;
-inline void GetPlayerMessage::clear_app_version() {
-  app_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& GetPlayerMessage::app_version() const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Requests.Messages.GetPlayerMessage.app_version)
-  return app_version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetPlayerMessage::set_app_version(const ::std::string& value) {
-  
-  app_version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Requests.Messages.GetPlayerMessage.app_version)
-}
-inline void GetPlayerMessage::set_app_version(const char* value) {
-  
-  app_version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:POGOProtos.Networking.Requests.Messages.GetPlayerMessage.app_version)
-}
-inline void GetPlayerMessage::set_app_version(const char* value, size_t size) {
-  
-  app_version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Networking.Requests.Messages.GetPlayerMessage.app_version)
-}
-inline ::std::string* GetPlayerMessage::mutable_app_version() {
-  
-  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Requests.Messages.GetPlayerMessage.app_version)
-  return app_version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* GetPlayerMessage::release_app_version() {
-  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Requests.Messages.GetPlayerMessage.app_version)
-  
-  return app_version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void GetPlayerMessage::set_allocated_app_version(::std::string* app_version) {
-  if (app_version != NULL) {
-    
-  } else {
-    
-  }
-  app_version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), app_version);
-  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Requests.Messages.GetPlayerMessage.app_version)
-}
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
 

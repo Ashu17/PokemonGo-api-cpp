@@ -186,6 +186,12 @@ class GymBattleSettings : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::int32 swap_duration_ms() const;
   void set_swap_duration_ms(::google::protobuf::int32 value);
 
+  // optional float dodge_damage_reduction_percent = 15;
+  void clear_dodge_damage_reduction_percent();
+  static const int kDodgeDamageReductionPercentFieldNumber = 15;
+  float dodge_damage_reduction_percent() const;
+  void set_dodge_damage_reduction_percent(float value);
+
   // @@protoc_insertion_point(class_scope:POGOProtos.Settings.Master.GymBattleSettings)
  private:
 
@@ -205,6 +211,7 @@ class GymBattleSettings : public ::google::protobuf::Message /* @@protoc_inserti
   ::google::protobuf::int32 dodge_duration_ms_;
   ::google::protobuf::int32 minimum_player_level_;
   ::google::protobuf::int32 swap_duration_ms_;
+  float dodge_damage_reduction_percent_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_POGOProtos_2fSettings_2fMaster_2fGymBattleSettings_2eproto();
   friend void protobuf_AssignDesc_POGOProtos_2fSettings_2fMaster_2fGymBattleSettings_2eproto();
@@ -415,6 +422,20 @@ inline void GymBattleSettings::set_swap_duration_ms(::google::protobuf::int32 va
   
   swap_duration_ms_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Settings.Master.GymBattleSettings.swap_duration_ms)
+}
+
+// optional float dodge_damage_reduction_percent = 15;
+inline void GymBattleSettings::clear_dodge_damage_reduction_percent() {
+  dodge_damage_reduction_percent_ = 0;
+}
+inline float GymBattleSettings::dodge_damage_reduction_percent() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Settings.Master.GymBattleSettings.dodge_damage_reduction_percent)
+  return dodge_damage_reduction_percent_;
+}
+inline void GymBattleSettings::set_dodge_damage_reduction_percent(float value) {
+  
+  dodge_damage_reduction_percent_ = value;
+  // @@protoc_insertion_point(field_set:POGOProtos.Settings.Master.GymBattleSettings.dodge_damage_reduction_percent)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

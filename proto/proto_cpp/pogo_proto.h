@@ -192,6 +192,7 @@
 #include "POGOProtos/Settings/DownloadSettingsAction.pb.h"
 #include "POGOProtos/Settings/FortSettings.pb.h"
 #include "POGOProtos/Settings/GlobalSettings.pb.h"
+#include "POGOProtos/Settings/GpsSettings.pb.h"
 #include "POGOProtos/Settings/InventorySettings.pb.h"
 #include "POGOProtos/Settings/LevelSettings.pb.h"
 #include "POGOProtos/Settings/MapSettings.pb.h"

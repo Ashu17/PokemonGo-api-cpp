@@ -31,6 +31,7 @@
 #include "POGOProtos/Settings/MapSettings.pb.h"
 #include "POGOProtos/Settings/LevelSettings.pb.h"
 #include "POGOProtos/Settings/InventorySettings.pb.h"
+#include "POGOProtos/Settings/GpsSettings.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace POGOProtos {
@@ -152,6 +153,15 @@ class GlobalSettings : public ::google::protobuf::Message /* @@protoc_insertion_
   ::std::string* release_minimum_client_version();
   void set_allocated_minimum_client_version(::std::string* minimum_client_version);
 
+  // optional .POGOProtos.Settings.GpsSettings gps_settings = 7;
+  bool has_gps_settings() const;
+  void clear_gps_settings();
+  static const int kGpsSettingsFieldNumber = 7;
+  const ::POGOProtos::Settings::GpsSettings& gps_settings() const;
+  ::POGOProtos::Settings::GpsSettings* mutable_gps_settings();
+  ::POGOProtos::Settings::GpsSettings* release_gps_settings();
+  void set_allocated_gps_settings(::POGOProtos::Settings::GpsSettings* gps_settings);
+
   // @@protoc_insertion_point(class_scope:POGOProtos.Settings.GlobalSettings)
  private:
 
@@ -162,6 +172,7 @@ class GlobalSettings : public ::google::protobuf::Message /* @@protoc_insertion_
   ::POGOProtos::Settings::LevelSettings* level_settings_;
   ::POGOProtos::Settings::InventorySettings* inventory_settings_;
   ::google::protobuf::internal::ArenaStringPtr minimum_client_version_;
+  ::POGOProtos::Settings::GpsSettings* gps_settings_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_POGOProtos_2fSettings_2fGlobalSettings_2eproto();
   friend void protobuf_AssignDesc_POGOProtos_2fSettings_2fGlobalSettings_2eproto();
@@ -372,6 +383,44 @@ inline void GlobalSettings::set_allocated_minimum_client_version(::std::string* 
   }
   minimum_client_version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), minimum_client_version);
   // @@protoc_insertion_point(field_set_allocated:POGOProtos.Settings.GlobalSettings.minimum_client_version)
+}
+
+// optional .POGOProtos.Settings.GpsSettings gps_settings = 7;
+inline bool GlobalSettings::has_gps_settings() const {
+  return !_is_default_instance_ && gps_settings_ != NULL;
+}
+inline void GlobalSettings::clear_gps_settings() {
+  if (GetArenaNoVirtual() == NULL && gps_settings_ != NULL) delete gps_settings_;
+  gps_settings_ = NULL;
+}
+inline const ::POGOProtos::Settings::GpsSettings& GlobalSettings::gps_settings() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Settings.GlobalSettings.gps_settings)
+  return gps_settings_ != NULL ? *gps_settings_ : *default_instance_->gps_settings_;
+}
+inline ::POGOProtos::Settings::GpsSettings* GlobalSettings::mutable_gps_settings() {
+  
+  if (gps_settings_ == NULL) {
+    gps_settings_ = new ::POGOProtos::Settings::GpsSettings;
+  }
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Settings.GlobalSettings.gps_settings)
+  return gps_settings_;
+}
+inline ::POGOProtos::Settings::GpsSettings* GlobalSettings::release_gps_settings() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Settings.GlobalSettings.gps_settings)
+  
+  ::POGOProtos::Settings::GpsSettings* temp = gps_settings_;
+  gps_settings_ = NULL;
+  return temp;
+}
+inline void GlobalSettings::set_allocated_gps_settings(::POGOProtos::Settings::GpsSettings* gps_settings) {
+  delete gps_settings_;
+  gps_settings_ = gps_settings;
+  if (gps_settings) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Settings.GlobalSettings.gps_settings)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

@@ -92,14 +92,14 @@ void protobuf_AddDesc_POGOProtos_2fData_2fLogs_2fCatchPokemonLogEntry_2eproto() 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n/POGOProtos/Data/Logs/CatchPokemonLogEn"
     "try.proto\022\024POGOProtos.Data.Logs\032 POGOPro"
-    "tos/Enums/PokemonId.proto\"\367\001\n\024CatchPokem"
+    "tos/Enums/PokemonId.proto\"\214\002\n\024CatchPokem"
     "onLogEntry\022A\n\006result\030\001 \001(\01621.POGOProtos."
     "Data.Logs.CatchPokemonLogEntry.Result\022/\n"
     "\npokemon_id\030\002 \001(\0162\033.POGOProtos.Enums.Pok"
     "emonId\022\025\n\rcombat_points\030\003 \001(\005\022\027\n\017pokemon"
-    "_data_id\030\004 \001(\004\";\n\006Result\022\t\n\005UNSET\020\000\022\024\n\020P"
-    "OKEMON_CAPTURED\020\001\022\020\n\014POKEMON_FLED\020\002b\006pro"
-    "to3", 363);
+    "_data_id\030\004 \001(\006\"P\n\006Result\022\t\n\005UNSET\020\000\022\024\n\020P"
+    "OKEMON_CAPTURED\020\001\022\020\n\014POKEMON_FLED\020\002\022\023\n\017P"
+    "OKEMON_HATCHED\020\003b\006proto3", 384);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "POGOProtos/Data/Logs/CatchPokemonLogEntry.proto", &protobuf_RegisterTypes);
   CatchPokemonLogEntry::default_instance_ = new CatchPokemonLogEntry();
@@ -125,6 +125,7 @@ bool CatchPokemonLogEntry_Result_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -135,6 +136,7 @@ bool CatchPokemonLogEntry_Result_IsValid(int value) {
 const CatchPokemonLogEntry_Result CatchPokemonLogEntry::UNSET;
 const CatchPokemonLogEntry_Result CatchPokemonLogEntry::POKEMON_CAPTURED;
 const CatchPokemonLogEntry_Result CatchPokemonLogEntry::POKEMON_FLED;
+const CatchPokemonLogEntry_Result CatchPokemonLogEntry::POKEMON_HATCHED;
 const CatchPokemonLogEntry_Result CatchPokemonLogEntry::Result_MIN;
 const CatchPokemonLogEntry_Result CatchPokemonLogEntry::Result_MAX;
 const int CatchPokemonLogEntry::Result_ARRAYSIZE;
@@ -285,16 +287,16 @@ bool CatchPokemonLogEntry::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(32)) goto parse_pokemon_data_id;
+        if (input->ExpectTag(33)) goto parse_pokemon_data_id;
         break;
       }
 
-      // optional uint64 pokemon_data_id = 4;
+      // optional fixed64 pokemon_data_id = 4;
       case 4: {
-        if (tag == 32) {
+        if (tag == 33) {
          parse_pokemon_data_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_FIXED64>(
                  input, &pokemon_data_id_)));
 
         } else {
@@ -345,9 +347,9 @@ void CatchPokemonLogEntry::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->combat_points(), output);
   }
 
-  // optional uint64 pokemon_data_id = 4;
+  // optional fixed64 pokemon_data_id = 4;
   if (this->pokemon_data_id() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->pokemon_data_id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteFixed64(4, this->pokemon_data_id(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:POGOProtos.Data.Logs.CatchPokemonLogEntry)
@@ -373,9 +375,9 @@ void CatchPokemonLogEntry::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->combat_points(), target);
   }
 
-  // optional uint64 pokemon_data_id = 4;
+  // optional fixed64 pokemon_data_id = 4;
   if (this->pokemon_data_id() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->pokemon_data_id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteFixed64ToArray(4, this->pokemon_data_id(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:POGOProtos.Data.Logs.CatchPokemonLogEntry)
@@ -405,11 +407,9 @@ int CatchPokemonLogEntry::ByteSize() const {
         this->combat_points());
   }
 
-  // optional uint64 pokemon_data_id = 4;
+  // optional fixed64 pokemon_data_id = 4;
   if (this->pokemon_data_id() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt64Size(
-        this->pokemon_data_id());
+    total_size += 1 + 8;
   }
 
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -539,7 +539,7 @@ void CatchPokemonLogEntry::clear_combat_points() {
   // @@protoc_insertion_point(field_set:POGOProtos.Data.Logs.CatchPokemonLogEntry.combat_points)
 }
 
-// optional uint64 pokemon_data_id = 4;
+// optional fixed64 pokemon_data_id = 4;
 void CatchPokemonLogEntry::clear_pokemon_data_id() {
   pokemon_data_id_ = GOOGLE_ULONGLONG(0);
 }

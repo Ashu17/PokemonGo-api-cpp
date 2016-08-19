@@ -118,11 +118,11 @@ class Signature_LocationFix : public ::google::protobuf::Message /* @@protoc_ins
   ::std::string* release_provider();
   void set_allocated_provider(::std::string* provider);
 
-  // optional uint64 timestamp_since_start = 2;
-  void clear_timestamp_since_start();
-  static const int kTimestampSinceStartFieldNumber = 2;
-  ::google::protobuf::uint64 timestamp_since_start() const;
-  void set_timestamp_since_start(::google::protobuf::uint64 value);
+  // optional uint64 timestamp_snapshot = 2;
+  void clear_timestamp_snapshot();
+  static const int kTimestampSnapshotFieldNumber = 2;
+  ::google::protobuf::uint64 timestamp_snapshot() const;
+  void set_timestamp_snapshot(::google::protobuf::uint64 value);
 
   // optional float latitude = 13;
   void clear_latitude();
@@ -178,7 +178,7 @@ class Signature_LocationFix : public ::google::protobuf::Message /* @@protoc_ins
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   bool _is_default_instance_;
   ::google::protobuf::internal::ArenaStringPtr provider_;
-  ::google::protobuf::uint64 timestamp_since_start_;
+  ::google::protobuf::uint64 timestamp_snapshot_;
   float latitude_;
   float longitude_;
   float horizontal_accuracy_;
@@ -1065,28 +1065,28 @@ class Signature : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::POGOProtos::Networking::Envelopes::Signature_ActivityStatus* release_activity_status();
   void set_allocated_activity_status(::POGOProtos::Networking::Envelopes::Signature_ActivityStatus* activity_status);
 
-  // optional uint32 location_hash1 = 10;
+  // optional uint64 location_hash1 = 10;
   void clear_location_hash1();
   static const int kLocationHash1FieldNumber = 10;
-  ::google::protobuf::uint32 location_hash1() const;
-  void set_location_hash1(::google::protobuf::uint32 value);
+  ::google::protobuf::uint64 location_hash1() const;
+  void set_location_hash1(::google::protobuf::uint64 value);
 
-  // optional uint32 location_hash2 = 20;
+  // optional uint64 location_hash2 = 20;
   void clear_location_hash2();
   static const int kLocationHash2FieldNumber = 20;
-  ::google::protobuf::uint32 location_hash2() const;
-  void set_location_hash2(::google::protobuf::uint32 value);
+  ::google::protobuf::uint64 location_hash2() const;
+  void set_location_hash2(::google::protobuf::uint64 value);
 
-  // optional bytes unknown22 = 22;
-  void clear_unknown22();
-  static const int kUnknown22FieldNumber = 22;
-  const ::std::string& unknown22() const;
-  void set_unknown22(const ::std::string& value);
-  void set_unknown22(const char* value);
-  void set_unknown22(const void* value, size_t size);
-  ::std::string* mutable_unknown22();
-  ::std::string* release_unknown22();
-  void set_allocated_unknown22(::std::string* unknown22);
+  // optional bytes session_hash = 22;
+  void clear_session_hash();
+  static const int kSessionHashFieldNumber = 22;
+  const ::std::string& session_hash() const;
+  void set_session_hash(const ::std::string& value);
+  void set_session_hash(const char* value);
+  void set_session_hash(const void* value, size_t size);
+  ::std::string* mutable_session_hash();
+  ::std::string* release_session_hash();
+  void set_allocated_session_hash(::std::string* session_hash);
 
   // optional uint64 timestamp = 23;
   void clear_timestamp();
@@ -1106,6 +1106,12 @@ class Signature : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
       mutable_request_hash();
 
+  // optional int64 unknown25 = 25;
+  void clear_unknown25();
+  static const int kUnknown25FieldNumber = 25;
+  ::google::protobuf::int64 unknown25() const;
+  void set_unknown25(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Envelopes.Signature)
  private:
 
@@ -1117,12 +1123,13 @@ class Signature : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::POGOProtos::Networking::Envelopes::Signature_SensorInfo* sensor_info_;
   ::POGOProtos::Networking::Envelopes::Signature_DeviceInfo* device_info_;
   ::POGOProtos::Networking::Envelopes::Signature_ActivityStatus* activity_status_;
-  ::google::protobuf::uint32 location_hash1_;
-  ::google::protobuf::uint32 location_hash2_;
-  ::google::protobuf::internal::ArenaStringPtr unknown22_;
+  ::google::protobuf::uint64 location_hash1_;
+  ::google::protobuf::uint64 location_hash2_;
+  ::google::protobuf::internal::ArenaStringPtr session_hash_;
   ::google::protobuf::uint64 timestamp_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > request_hash_;
   mutable int _request_hash_cached_byte_size_;
+  ::google::protobuf::int64 unknown25_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_POGOProtos_2fNetworking_2fEnvelopes_2fSignature_2eproto();
   friend void protobuf_AssignDesc_POGOProtos_2fNetworking_2fEnvelopes_2fSignature_2eproto();
@@ -1183,18 +1190,18 @@ inline void Signature_LocationFix::set_allocated_provider(::std::string* provide
   // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Envelopes.Signature.LocationFix.provider)
 }
 
-// optional uint64 timestamp_since_start = 2;
-inline void Signature_LocationFix::clear_timestamp_since_start() {
-  timestamp_since_start_ = GOOGLE_ULONGLONG(0);
+// optional uint64 timestamp_snapshot = 2;
+inline void Signature_LocationFix::clear_timestamp_snapshot() {
+  timestamp_snapshot_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint64 Signature_LocationFix::timestamp_since_start() const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.LocationFix.timestamp_since_start)
-  return timestamp_since_start_;
+inline ::google::protobuf::uint64 Signature_LocationFix::timestamp_snapshot() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.LocationFix.timestamp_snapshot)
+  return timestamp_snapshot_;
 }
-inline void Signature_LocationFix::set_timestamp_since_start(::google::protobuf::uint64 value) {
+inline void Signature_LocationFix::set_timestamp_snapshot(::google::protobuf::uint64 value) {
   
-  timestamp_since_start_ = value;
-  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.LocationFix.timestamp_since_start)
+  timestamp_snapshot_ = value;
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.LocationFix.timestamp_snapshot)
 }
 
 // optional float latitude = 13;
@@ -2715,76 +2722,76 @@ inline void Signature::set_allocated_activity_status(::POGOProtos::Networking::E
   // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Envelopes.Signature.activity_status)
 }
 
-// optional uint32 location_hash1 = 10;
+// optional uint64 location_hash1 = 10;
 inline void Signature::clear_location_hash1() {
-  location_hash1_ = 0u;
+  location_hash1_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint32 Signature::location_hash1() const {
+inline ::google::protobuf::uint64 Signature::location_hash1() const {
   // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.location_hash1)
   return location_hash1_;
 }
-inline void Signature::set_location_hash1(::google::protobuf::uint32 value) {
+inline void Signature::set_location_hash1(::google::protobuf::uint64 value) {
   
   location_hash1_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.location_hash1)
 }
 
-// optional uint32 location_hash2 = 20;
+// optional uint64 location_hash2 = 20;
 inline void Signature::clear_location_hash2() {
-  location_hash2_ = 0u;
+  location_hash2_ = GOOGLE_ULONGLONG(0);
 }
-inline ::google::protobuf::uint32 Signature::location_hash2() const {
+inline ::google::protobuf::uint64 Signature::location_hash2() const {
   // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.location_hash2)
   return location_hash2_;
 }
-inline void Signature::set_location_hash2(::google::protobuf::uint32 value) {
+inline void Signature::set_location_hash2(::google::protobuf::uint64 value) {
   
   location_hash2_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.location_hash2)
 }
 
-// optional bytes unknown22 = 22;
-inline void Signature::clear_unknown22() {
-  unknown22_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional bytes session_hash = 22;
+inline void Signature::clear_session_hash() {
+  session_hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& Signature::unknown22() const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.unknown22)
-  return unknown22_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& Signature::session_hash() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.session_hash)
+  return session_hash_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Signature::set_unknown22(const ::std::string& value) {
+inline void Signature::set_session_hash(const ::std::string& value) {
   
-  unknown22_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.unknown22)
+  session_hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.session_hash)
 }
-inline void Signature::set_unknown22(const char* value) {
+inline void Signature::set_session_hash(const char* value) {
   
-  unknown22_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:POGOProtos.Networking.Envelopes.Signature.unknown22)
+  session_hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:POGOProtos.Networking.Envelopes.Signature.session_hash)
 }
-inline void Signature::set_unknown22(const void* value, size_t size) {
+inline void Signature::set_session_hash(const void* value, size_t size) {
   
-  unknown22_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  session_hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Networking.Envelopes.Signature.unknown22)
+  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Networking.Envelopes.Signature.session_hash)
 }
-inline ::std::string* Signature::mutable_unknown22() {
+inline ::std::string* Signature::mutable_session_hash() {
   
-  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Envelopes.Signature.unknown22)
-  return unknown22_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Envelopes.Signature.session_hash)
+  return session_hash_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* Signature::release_unknown22() {
-  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Envelopes.Signature.unknown22)
+inline ::std::string* Signature::release_session_hash() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Envelopes.Signature.session_hash)
   
-  return unknown22_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return session_hash_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void Signature::set_allocated_unknown22(::std::string* unknown22) {
-  if (unknown22 != NULL) {
+inline void Signature::set_allocated_session_hash(::std::string* session_hash) {
+  if (session_hash != NULL) {
     
   } else {
     
   }
-  unknown22_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), unknown22);
-  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Envelopes.Signature.unknown22)
+  session_hash_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), session_hash);
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Envelopes.Signature.session_hash)
 }
 
 // optional uint64 timestamp = 23;
@@ -2829,6 +2836,20 @@ inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
 Signature::mutable_request_hash() {
   // @@protoc_insertion_point(field_mutable_list:POGOProtos.Networking.Envelopes.Signature.request_hash)
   return &request_hash_;
+}
+
+// optional int64 unknown25 = 25;
+inline void Signature::clear_unknown25() {
+  unknown25_ = GOOGLE_LONGLONG(0);
+}
+inline ::google::protobuf::int64 Signature::unknown25() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.unknown25)
+  return unknown25_;
+}
+inline void Signature::set_unknown25(::google::protobuf::int64 value) {
+  
+  unknown25_ = value;
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.unknown25)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

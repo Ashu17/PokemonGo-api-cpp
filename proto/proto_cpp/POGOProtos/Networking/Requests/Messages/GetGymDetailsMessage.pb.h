@@ -138,6 +138,17 @@ class GetGymDetailsMessage : public ::google::protobuf::Message /* @@protoc_inse
   double gym_longitude() const;
   void set_gym_longitude(double value);
 
+  // optional string client_version = 6;
+  void clear_client_version();
+  static const int kClientVersionFieldNumber = 6;
+  const ::std::string& client_version() const;
+  void set_client_version(const ::std::string& value);
+  void set_client_version(const char* value);
+  void set_client_version(const char* value, size_t size);
+  ::std::string* mutable_client_version();
+  ::std::string* release_client_version();
+  void set_allocated_client_version(::std::string* client_version);
+
   // @@protoc_insertion_point(class_scope:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage)
  private:
 
@@ -148,6 +159,7 @@ class GetGymDetailsMessage : public ::google::protobuf::Message /* @@protoc_inse
   double player_longitude_;
   double gym_latitude_;
   double gym_longitude_;
+  ::google::protobuf::internal::ArenaStringPtr client_version_;
   mutable int _cached_size_;
   friend void  protobuf_AddDesc_POGOProtos_2fNetworking_2fRequests_2fMessages_2fGetGymDetailsMessage_2eproto();
   friend void protobuf_AssignDesc_POGOProtos_2fNetworking_2fRequests_2fMessages_2fGetGymDetailsMessage_2eproto();
@@ -262,6 +274,50 @@ inline void GetGymDetailsMessage::set_gym_longitude(double value) {
   
   gym_longitude_ = value;
   // @@protoc_insertion_point(field_set:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.gym_longitude)
+}
+
+// optional string client_version = 6;
+inline void GetGymDetailsMessage::clear_client_version() {
+  client_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& GetGymDetailsMessage::client_version() const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+  return client_version_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetGymDetailsMessage::set_client_version(const ::std::string& value) {
+  
+  client_version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+}
+inline void GetGymDetailsMessage::set_client_version(const char* value) {
+  
+  client_version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+}
+inline void GetGymDetailsMessage::set_client_version(const char* value, size_t size) {
+  
+  client_version_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+}
+inline ::std::string* GetGymDetailsMessage::mutable_client_version() {
+  
+  // @@protoc_insertion_point(field_mutable:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+  return client_version_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GetGymDetailsMessage::release_client_version() {
+  // @@protoc_insertion_point(field_release:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
+  
+  return client_version_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetGymDetailsMessage::set_allocated_client_version(::std::string* client_version) {
+  if (client_version != NULL) {
+    
+  } else {
+    
+  }
+  client_version_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), client_version);
+  // @@protoc_insertion_point(field_set_allocated:POGOProtos.Networking.Requests.Messages.GetGymDetailsMessage.client_version)
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

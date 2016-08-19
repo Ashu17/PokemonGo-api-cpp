@@ -46,12 +46,13 @@ enum CatchPokemonLogEntry_Result {
   CatchPokemonLogEntry_Result_UNSET = 0,
   CatchPokemonLogEntry_Result_POKEMON_CAPTURED = 1,
   CatchPokemonLogEntry_Result_POKEMON_FLED = 2,
+  CatchPokemonLogEntry_Result_POKEMON_HATCHED = 3,
   CatchPokemonLogEntry_Result_CatchPokemonLogEntry_Result_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   CatchPokemonLogEntry_Result_CatchPokemonLogEntry_Result_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool CatchPokemonLogEntry_Result_IsValid(int value);
 const CatchPokemonLogEntry_Result CatchPokemonLogEntry_Result_Result_MIN = CatchPokemonLogEntry_Result_UNSET;
-const CatchPokemonLogEntry_Result CatchPokemonLogEntry_Result_Result_MAX = CatchPokemonLogEntry_Result_POKEMON_FLED;
+const CatchPokemonLogEntry_Result CatchPokemonLogEntry_Result_Result_MAX = CatchPokemonLogEntry_Result_POKEMON_HATCHED;
 const int CatchPokemonLogEntry_Result_Result_ARRAYSIZE = CatchPokemonLogEntry_Result_Result_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* CatchPokemonLogEntry_Result_descriptor();
@@ -131,6 +132,8 @@ class CatchPokemonLogEntry : public ::google::protobuf::Message /* @@protoc_inse
     CatchPokemonLogEntry_Result_POKEMON_CAPTURED;
   static const Result POKEMON_FLED =
     CatchPokemonLogEntry_Result_POKEMON_FLED;
+  static const Result POKEMON_HATCHED =
+    CatchPokemonLogEntry_Result_POKEMON_HATCHED;
   static inline bool Result_IsValid(int value) {
     return CatchPokemonLogEntry_Result_IsValid(value);
   }
@@ -172,7 +175,7 @@ class CatchPokemonLogEntry : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::int32 combat_points() const;
   void set_combat_points(::google::protobuf::int32 value);
 
-  // optional uint64 pokemon_data_id = 4;
+  // optional fixed64 pokemon_data_id = 4;
   void clear_pokemon_data_id();
   static const int kPokemonDataIdFieldNumber = 4;
   ::google::protobuf::uint64 pokemon_data_id() const;
@@ -245,7 +248,7 @@ inline void CatchPokemonLogEntry::set_combat_points(::google::protobuf::int32 va
   // @@protoc_insertion_point(field_set:POGOProtos.Data.Logs.CatchPokemonLogEntry.combat_points)
 }
 
-// optional uint64 pokemon_data_id = 4;
+// optional fixed64 pokemon_data_id = 4;
 inline void CatchPokemonLogEntry::clear_pokemon_data_id() {
   pokemon_data_id_ = GOOGLE_ULONGLONG(0);
 }
