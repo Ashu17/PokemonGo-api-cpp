@@ -106,9 +106,9 @@ void protobuf_AssignDesc_POGOProtos_2fNetworking_2fEnvelopes_2fSignature_2eproto
   static const int Signature_AndroidGpsInfo_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_AndroidGpsInfo, time_to_fix_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_AndroidGpsInfo, satellites_prn_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_AndroidGpsInfo, snr_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_AndroidGpsInfo, azimuth_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_AndroidGpsInfo, elevation_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_AndroidGpsInfo, snr_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_AndroidGpsInfo, has_almanac_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_AndroidGpsInfo, has_ephemeris_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Signature_AndroidGpsInfo, used_in_fix_),
@@ -280,8 +280,8 @@ void protobuf_AddDesc_POGOProtos_2fNetworking_2fEnvelopes_2fSignature_2eproto() 
     "rtical_accuracy\030\026 \001(\002\022\027\n\017provider_status"
     "\030\032 \001(\004\022\r\n\005floor\030\033 \001(\r\022\025\n\rlocation_type\030\034"
     " \001(\004\032\257\001\n\016AndroidGpsInfo\022\023\n\013time_to_fix\030\001"
-    " \001(\004\022\026\n\016satellites_prn\030\002 \003(\005\022\013\n\003snr\030\003 \003("
-    "\002\022\017\n\007azimuth\030\004 \003(\002\022\021\n\televation\030\005 \003(\002\022\023\n"
+    " \001(\004\022\026\n\016satellites_prn\030\002 \003(\005\022\017\n\007azimuth\030"
+    "\003 \003(\002\022\021\n\televation\030\004 \003(\002\022\013\n\003snr\030\005 \003(\002\022\023\n"
     "\013has_almanac\030\006 \003(\010\022\025\n\rhas_ephemeris\030\007 \003("
     "\010\022\023\n\013used_in_fix\030\010 \003(\010\032\276\003\n\nSensorInfo\022\032\n"
     "\022timestamp_snapshot\030\001 \001(\004\022\026\n\016magnetomete"
@@ -928,9 +928,9 @@ void Signature_LocationFix::InternalSwap(Signature_LocationFix* other) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Signature_AndroidGpsInfo::kTimeToFixFieldNumber;
 const int Signature_AndroidGpsInfo::kSatellitesPrnFieldNumber;
-const int Signature_AndroidGpsInfo::kSnrFieldNumber;
 const int Signature_AndroidGpsInfo::kAzimuthFieldNumber;
 const int Signature_AndroidGpsInfo::kElevationFieldNumber;
+const int Signature_AndroidGpsInfo::kSnrFieldNumber;
 const int Signature_AndroidGpsInfo::kHasAlmanacFieldNumber;
 const int Signature_AndroidGpsInfo::kHasEphemerisFieldNumber;
 const int Signature_AndroidGpsInfo::kUsedInFixFieldNumber;
@@ -999,9 +999,9 @@ void Signature_AndroidGpsInfo::Clear() {
 // @@protoc_insertion_point(message_clear_start:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo)
   time_to_fix_ = GOOGLE_ULONGLONG(0);
   satellites_prn_.Clear();
-  snr_.Clear();
   azimuth_.Clear();
   elevation_.Clear();
+  snr_.Clear();
   has_almanac_.Clear();
   has_ephemeris_.Clear();
   used_in_fix_.Clear();
@@ -1045,57 +1045,57 @@ bool Signature_AndroidGpsInfo::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(26)) goto parse_snr;
+        if (input->ExpectTag(26)) goto parse_azimuth;
         break;
       }
 
-      // repeated float snr = 3;
+      // repeated float azimuth = 3;
       case 3: {
         if (tag == 26) {
-         parse_snr:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 input, this->mutable_snr())));
-        } else if (tag == 29) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
-                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 1, 26, input, this->mutable_snr())));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(34)) goto parse_azimuth;
-        break;
-      }
-
-      // repeated float azimuth = 4;
-      case 4: {
-        if (tag == 34) {
          parse_azimuth:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, this->mutable_azimuth())));
-        } else if (tag == 37) {
+        } else if (tag == 29) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 1, 34, input, this->mutable_azimuth())));
+                 1, 26, input, this->mutable_azimuth())));
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(42)) goto parse_elevation;
+        if (input->ExpectTag(34)) goto parse_elevation;
         break;
       }
 
-      // repeated float elevation = 5;
-      case 5: {
-        if (tag == 42) {
+      // repeated float elevation = 4;
+      case 4: {
+        if (tag == 34) {
          parse_elevation:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
                  input, this->mutable_elevation())));
+        } else if (tag == 37) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 34, input, this->mutable_elevation())));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_snr;
+        break;
+      }
+
+      // repeated float snr = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_snr:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_snr())));
         } else if (tag == 45) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
-                 1, 42, input, this->mutable_elevation())));
+                 1, 42, input, this->mutable_snr())));
         } else {
           goto handle_unusual;
         }
@@ -1196,19 +1196,9 @@ void Signature_AndroidGpsInfo::SerializeWithCachedSizes(
       this->satellites_prn(i), output);
   }
 
-  // repeated float snr = 3;
-  if (this->snr_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
-    output->WriteVarint32(_snr_cached_byte_size_);
-  }
-  for (int i = 0; i < this->snr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteFloatNoTag(
-      this->snr(i), output);
-  }
-
-  // repeated float azimuth = 4;
+  // repeated float azimuth = 3;
   if (this->azimuth_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(4, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    ::google::protobuf::internal::WireFormatLite::WriteTag(3, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(_azimuth_cached_byte_size_);
   }
   for (int i = 0; i < this->azimuth_size(); i++) {
@@ -1216,14 +1206,24 @@ void Signature_AndroidGpsInfo::SerializeWithCachedSizes(
       this->azimuth(i), output);
   }
 
-  // repeated float elevation = 5;
+  // repeated float elevation = 4;
   if (this->elevation_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(5, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    ::google::protobuf::internal::WireFormatLite::WriteTag(4, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(_elevation_cached_byte_size_);
   }
   for (int i = 0; i < this->elevation_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteFloatNoTag(
       this->elevation(i), output);
+  }
+
+  // repeated float snr = 5;
+  if (this->snr_size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteTag(5, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    output->WriteVarint32(_snr_cached_byte_size_);
+  }
+  for (int i = 0; i < this->snr_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloatNoTag(
+      this->snr(i), output);
   }
 
   // repeated bool has_almanac = 6;
@@ -1281,24 +1281,10 @@ void Signature_AndroidGpsInfo::SerializeWithCachedSizes(
       WriteInt32NoTagToArray(this->satellites_prn(i), target);
   }
 
-  // repeated float snr = 3;
-  if (this->snr_size() > 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      3,
-      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
-      target);
-    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-      _snr_cached_byte_size_, target);
-  }
-  for (int i = 0; i < this->snr_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteFloatNoTagToArray(this->snr(i), target);
-  }
-
-  // repeated float azimuth = 4;
+  // repeated float azimuth = 3;
   if (this->azimuth_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      4,
+      3,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
@@ -1309,10 +1295,10 @@ void Signature_AndroidGpsInfo::SerializeWithCachedSizes(
       WriteFloatNoTagToArray(this->azimuth(i), target);
   }
 
-  // repeated float elevation = 5;
+  // repeated float elevation = 4;
   if (this->elevation_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      5,
+      4,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
@@ -1321,6 +1307,20 @@ void Signature_AndroidGpsInfo::SerializeWithCachedSizes(
   for (int i = 0; i < this->elevation_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteFloatNoTagToArray(this->elevation(i), target);
+  }
+
+  // repeated float snr = 5;
+  if (this->snr_size() > 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
+      5,
+      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
+      target);
+    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
+      _snr_cached_byte_size_, target);
+  }
+  for (int i = 0; i < this->snr_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteFloatNoTagToArray(this->snr(i), target);
   }
 
   // repeated bool has_almanac = 6;
@@ -1397,21 +1397,7 @@ int Signature_AndroidGpsInfo::ByteSize() const {
     total_size += data_size;
   }
 
-  // repeated float snr = 3;
-  {
-    int data_size = 0;
-    data_size = 4 * this->snr_size();
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
-    }
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _snr_cached_byte_size_ = data_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
-  }
-
-  // repeated float azimuth = 4;
+  // repeated float azimuth = 3;
   {
     int data_size = 0;
     data_size = 4 * this->azimuth_size();
@@ -1425,7 +1411,7 @@ int Signature_AndroidGpsInfo::ByteSize() const {
     total_size += data_size;
   }
 
-  // repeated float elevation = 5;
+  // repeated float elevation = 4;
   {
     int data_size = 0;
     data_size = 4 * this->elevation_size();
@@ -1435,6 +1421,20 @@ int Signature_AndroidGpsInfo::ByteSize() const {
     }
     GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
     _elevation_cached_byte_size_ = data_size;
+    GOOGLE_SAFE_CONCURRENT_WRITES_END();
+    total_size += data_size;
+  }
+
+  // repeated float snr = 5;
+  {
+    int data_size = 0;
+    data_size = 4 * this->snr_size();
+    if (data_size > 0) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(data_size);
+    }
+    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+    _snr_cached_byte_size_ = data_size;
     GOOGLE_SAFE_CONCURRENT_WRITES_END();
     total_size += data_size;
   }
@@ -1510,9 +1510,9 @@ void Signature_AndroidGpsInfo::MergeFrom(const Signature_AndroidGpsInfo& from) {
     ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
   }
   satellites_prn_.MergeFrom(from.satellites_prn_);
-  snr_.MergeFrom(from.snr_);
   azimuth_.MergeFrom(from.azimuth_);
   elevation_.MergeFrom(from.elevation_);
+  snr_.MergeFrom(from.snr_);
   has_almanac_.MergeFrom(from.has_almanac_);
   has_ephemeris_.MergeFrom(from.has_ephemeris_);
   used_in_fix_.MergeFrom(from.used_in_fix_);
@@ -1547,9 +1547,9 @@ void Signature_AndroidGpsInfo::Swap(Signature_AndroidGpsInfo* other) {
 void Signature_AndroidGpsInfo::InternalSwap(Signature_AndroidGpsInfo* other) {
   std::swap(time_to_fix_, other->time_to_fix_);
   satellites_prn_.UnsafeArenaSwap(&other->satellites_prn_);
-  snr_.UnsafeArenaSwap(&other->snr_);
   azimuth_.UnsafeArenaSwap(&other->azimuth_);
   elevation_.UnsafeArenaSwap(&other->elevation_);
+  snr_.UnsafeArenaSwap(&other->snr_);
   has_almanac_.UnsafeArenaSwap(&other->has_almanac_);
   has_ephemeris_.UnsafeArenaSwap(&other->has_ephemeris_);
   used_in_fix_.UnsafeArenaSwap(&other->used_in_fix_);
@@ -4740,37 +4740,7 @@ Signature_AndroidGpsInfo::mutable_satellites_prn() {
   return &satellites_prn_;
 }
 
-// repeated float snr = 3;
-int Signature_AndroidGpsInfo::snr_size() const {
-  return snr_.size();
-}
-void Signature_AndroidGpsInfo::clear_snr() {
-  snr_.Clear();
-}
- float Signature_AndroidGpsInfo::snr(int index) const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-  return snr_.Get(index);
-}
- void Signature_AndroidGpsInfo::set_snr(int index, float value) {
-  snr_.Set(index, value);
-  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-}
- void Signature_AndroidGpsInfo::add_snr(float value) {
-  snr_.Add(value);
-  // @@protoc_insertion_point(field_add:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-}
- const ::google::protobuf::RepeatedField< float >&
-Signature_AndroidGpsInfo::snr() const {
-  // @@protoc_insertion_point(field_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-  return snr_;
-}
- ::google::protobuf::RepeatedField< float >*
-Signature_AndroidGpsInfo::mutable_snr() {
-  // @@protoc_insertion_point(field_mutable_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-  return &snr_;
-}
-
-// repeated float azimuth = 4;
+// repeated float azimuth = 3;
 int Signature_AndroidGpsInfo::azimuth_size() const {
   return azimuth_.size();
 }
@@ -4800,7 +4770,7 @@ Signature_AndroidGpsInfo::mutable_azimuth() {
   return &azimuth_;
 }
 
-// repeated float elevation = 5;
+// repeated float elevation = 4;
 int Signature_AndroidGpsInfo::elevation_size() const {
   return elevation_.size();
 }
@@ -4828,6 +4798,36 @@ Signature_AndroidGpsInfo::elevation() const {
 Signature_AndroidGpsInfo::mutable_elevation() {
   // @@protoc_insertion_point(field_mutable_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.elevation)
   return &elevation_;
+}
+
+// repeated float snr = 5;
+int Signature_AndroidGpsInfo::snr_size() const {
+  return snr_.size();
+}
+void Signature_AndroidGpsInfo::clear_snr() {
+  snr_.Clear();
+}
+ float Signature_AndroidGpsInfo::snr(int index) const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+  return snr_.Get(index);
+}
+ void Signature_AndroidGpsInfo::set_snr(int index, float value) {
+  snr_.Set(index, value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+}
+ void Signature_AndroidGpsInfo::add_snr(float value) {
+  snr_.Add(value);
+  // @@protoc_insertion_point(field_add:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+}
+ const ::google::protobuf::RepeatedField< float >&
+Signature_AndroidGpsInfo::snr() const {
+  // @@protoc_insertion_point(field_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+  return snr_;
+}
+ ::google::protobuf::RepeatedField< float >*
+Signature_AndroidGpsInfo::mutable_snr() {
+  // @@protoc_insertion_point(field_mutable_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+  return &snr_;
 }
 
 // repeated bool has_almanac = 6;

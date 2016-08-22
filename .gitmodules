@@ -1,3 +1,6 @@
-[submodule "proto/POGOProtos"]
-	path = proto/POGOProtos
-	url = https://github.com/AeonLucid/POGOProtos
+[submodule "POGOProtos"]
+	path = POGOProtos
+	url = https://github.com/AeonLucid/POGOProtos.git
+[submodule "xxHash"]
+	path = xxHash
+	url = https://github.com/Cyan4973/xxHash.git

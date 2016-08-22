@@ -275,22 +275,10 @@ class Signature_AndroidGpsInfo : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_satellites_prn();
 
-  // repeated float snr = 3;
-  int snr_size() const;
-  void clear_snr();
-  static const int kSnrFieldNumber = 3;
-  float snr(int index) const;
-  void set_snr(int index, float value);
-  void add_snr(float value);
-  const ::google::protobuf::RepeatedField< float >&
-      snr() const;
-  ::google::protobuf::RepeatedField< float >*
-      mutable_snr();
-
-  // repeated float azimuth = 4;
+  // repeated float azimuth = 3;
   int azimuth_size() const;
   void clear_azimuth();
-  static const int kAzimuthFieldNumber = 4;
+  static const int kAzimuthFieldNumber = 3;
   float azimuth(int index) const;
   void set_azimuth(int index, float value);
   void add_azimuth(float value);
@@ -299,10 +287,10 @@ class Signature_AndroidGpsInfo : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::RepeatedField< float >*
       mutable_azimuth();
 
-  // repeated float elevation = 5;
+  // repeated float elevation = 4;
   int elevation_size() const;
   void clear_elevation();
-  static const int kElevationFieldNumber = 5;
+  static const int kElevationFieldNumber = 4;
   float elevation(int index) const;
   void set_elevation(int index, float value);
   void add_elevation(float value);
@@ -310,6 +298,18 @@ class Signature_AndroidGpsInfo : public ::google::protobuf::Message /* @@protoc_
       elevation() const;
   ::google::protobuf::RepeatedField< float >*
       mutable_elevation();
+
+  // repeated float snr = 5;
+  int snr_size() const;
+  void clear_snr();
+  static const int kSnrFieldNumber = 5;
+  float snr(int index) const;
+  void set_snr(int index, float value);
+  void add_snr(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      snr() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_snr();
 
   // repeated bool has_almanac = 6;
   int has_almanac_size() const;
@@ -355,12 +355,12 @@ class Signature_AndroidGpsInfo : public ::google::protobuf::Message /* @@protoc_
   ::google::protobuf::uint64 time_to_fix_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > satellites_prn_;
   mutable int _satellites_prn_cached_byte_size_;
-  ::google::protobuf::RepeatedField< float > snr_;
-  mutable int _snr_cached_byte_size_;
   ::google::protobuf::RepeatedField< float > azimuth_;
   mutable int _azimuth_cached_byte_size_;
   ::google::protobuf::RepeatedField< float > elevation_;
   mutable int _elevation_cached_byte_size_;
+  ::google::protobuf::RepeatedField< float > snr_;
+  mutable int _snr_cached_byte_size_;
   ::google::protobuf::RepeatedField< bool > has_almanac_;
   mutable int _has_almanac_cached_byte_size_;
   ::google::protobuf::RepeatedField< bool > has_ephemeris_;
@@ -1364,37 +1364,7 @@ Signature_AndroidGpsInfo::mutable_satellites_prn() {
   return &satellites_prn_;
 }
 
-// repeated float snr = 3;
-inline int Signature_AndroidGpsInfo::snr_size() const {
-  return snr_.size();
-}
-inline void Signature_AndroidGpsInfo::clear_snr() {
-  snr_.Clear();
-}
-inline float Signature_AndroidGpsInfo::snr(int index) const {
-  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-  return snr_.Get(index);
-}
-inline void Signature_AndroidGpsInfo::set_snr(int index, float value) {
-  snr_.Set(index, value);
-  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-}
-inline void Signature_AndroidGpsInfo::add_snr(float value) {
-  snr_.Add(value);
-  // @@protoc_insertion_point(field_add:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-}
-inline const ::google::protobuf::RepeatedField< float >&
-Signature_AndroidGpsInfo::snr() const {
-  // @@protoc_insertion_point(field_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-  return snr_;
-}
-inline ::google::protobuf::RepeatedField< float >*
-Signature_AndroidGpsInfo::mutable_snr() {
-  // @@protoc_insertion_point(field_mutable_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
-  return &snr_;
-}
-
-// repeated float azimuth = 4;
+// repeated float azimuth = 3;
 inline int Signature_AndroidGpsInfo::azimuth_size() const {
   return azimuth_.size();
 }
@@ -1424,7 +1394,7 @@ Signature_AndroidGpsInfo::mutable_azimuth() {
   return &azimuth_;
 }
 
-// repeated float elevation = 5;
+// repeated float elevation = 4;
 inline int Signature_AndroidGpsInfo::elevation_size() const {
   return elevation_.size();
 }
@@ -1452,6 +1422,36 @@ inline ::google::protobuf::RepeatedField< float >*
 Signature_AndroidGpsInfo::mutable_elevation() {
   // @@protoc_insertion_point(field_mutable_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.elevation)
   return &elevation_;
+}
+
+// repeated float snr = 5;
+inline int Signature_AndroidGpsInfo::snr_size() const {
+  return snr_.size();
+}
+inline void Signature_AndroidGpsInfo::clear_snr() {
+  snr_.Clear();
+}
+inline float Signature_AndroidGpsInfo::snr(int index) const {
+  // @@protoc_insertion_point(field_get:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+  return snr_.Get(index);
+}
+inline void Signature_AndroidGpsInfo::set_snr(int index, float value) {
+  snr_.Set(index, value);
+  // @@protoc_insertion_point(field_set:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+}
+inline void Signature_AndroidGpsInfo::add_snr(float value) {
+  snr_.Add(value);
+  // @@protoc_insertion_point(field_add:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+Signature_AndroidGpsInfo::snr() const {
+  // @@protoc_insertion_point(field_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+  return snr_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+Signature_AndroidGpsInfo::mutable_snr() {
+  // @@protoc_insertion_point(field_mutable_list:POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo.snr)
+  return &snr_;
 }
 
 // repeated bool has_almanac = 6;
