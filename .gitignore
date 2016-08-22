@@ -6,3 +6,4 @@
 main.cpp
 *.db
 *.exe
+crc.json
